@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BrowserSync</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <div class="readme" style='background: white; margin-bottom:40px;padding-left:4em;'>
+    <h1>UI套件练习</h1>
+    <p>关联地址：
+      <ul>
+        <li>https://dribbble.com/shots/947782-Freebie-PSD-Flat-UI-Kit/attachments/107093</li>
+        <li>http://jscode.me/t/ui/516</li>
+      </ul>
+      <ul>
+        <li>只兼容Chrome</li>
+        <li>video控件，简单的自定义</li>
+        <li>CSS Animation 饼图，[Future TODO] JS 控制Animiation</li>
+      </ul>
+    </p>
+  </div>
+  <main>
+    <div class="col">
+      <div class="block video">
+        <div class="v">
+          <video>
+            <source src="livereload.m4v"> 浏览器不支持video标签
+          </video>
+          <div class="control-panel">
+            <div class="act" data-status='pause'>◢</div>
+            <div class="cover"></div>
+            <div class="progress">
+              <div class="posidot"></div>
+              <div class="loaded"></div>
+              <div class="pool"></div>
+            </div>
+            <div class="mute"></div>
+          </div>
+        </div>
+      </div>
+      <div class="block chart">
+        <div class="curve-section">
+          <h3 class="title">Revenue</h3>
+          <div class="curve"></div>
+        </div>
+        <div class="column-section">
+          <h5 class="title">Inquires</h5>
+          <div class="columns-per-month">
+            <div class="column-item month-1">
+              <div class="column-value"></div>
+              <div class="month-name">J</div>
+            </div>
+            <div class="column-item month-2">
+              <div class="column-value"></div>
+              <div class="month-name">F</div>
+            </div>
+            <div class="column-item month-3">
+              <div class="column-value"></div>
+              <div class="month-name">M</div>
+            </div>
+            <div class="column-item month-4">
+              <div class="column-value"></div>
+              <div class="month-name">A</div>
+            </div>
+            <div class="column-item month-5">
+              <div class="column-value"></div>
+              <div class="month-name">M</div>
+            </div>
+            <div class="column-item month-6">
+              <div class="column-value"></div>
+              <div class="month-name">J</div>
+            </div>
+            <div class="column-item month-7">
+              <div class="column-value"></div>
+              <div class="month-name">J</div>
+            </div>
+            <div class="column-item month-8">
+              <div class="column-value"></div>
+              <div class="month-name">A</div>
+            </div>
+            <div class="column-item month-9">
+              <div class="column-value"></div>
+              <div class="month-name">S</div>
+            </div>
+            <div class="column-item month-10">
+              <div class="column-value"></div>
+              <div class="month-name">O</div>
+            </div>
+            <div class="column-item month-11">
+              <div class="column-value"></div>
+              <div class="month-name">N</div>
+            </div>
+            <div class="column-item month-12">
+              <div class="column-value"></div>
+              <div class="month-name">D</div>
+            </div>
+          </div>
+          <div class="subsummary">
+            <div class="totalnum">+142</div>
+            <h6 class="title">FROM LAST YEAR</h6>
+          </div>
+        </div>
+        <div class="summary">
+          <div class="gr">
+            <h5 class="title">Gross Revenue</h5>
+            <span class="value">9362.74</span>
+          </div>
+          <div class="nr">
+            <h5 class="title">Net Revenue</h5>
+            <span class="value">6734.89</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="block tasklist">
+        <h3 class="title">Tasks Completed</h3>
+        <div class="progress-circle">
+          <div class="outer"></div>
+          <div class="outer-fix">
+          </div>
+          <div class="inner">
+            <span class="num">79<span class="unit">%</span></span>
+          </div>
+        </div>
+        <ul class="tab-task">
+          <li class='active'><span>CHART</span></li>
+          <li><span>TASKS</span></li>
+          <li><span>EVENTS</span></li>
+        </ul>
+      </div>
+      <div class="block mailbox">
+        <h3 class="title">Mailbox</h3>
+        <ul class="mail-list">
+          <li class="mail-catalog selected">
+            <i class="icon">❊</i>
+            <span class="title">Inbox</span>
+            <div class="badge">
+              <span class="badge-num">3</span>
+            </div>
+          </li>
+          <li class="mail-catalog">
+            <i class="icon">❊</i>
+            <span class="title">Starred</span>
+            <div class="badge">
+              <span class="badge-num">7</span>
+            </div>
+          </li>
+          <li class="mail-catalog">
+            <i class="icon">❊</i>
+            <span class="title">Flagged</span>
+            <div class="badge">
+              <span class="badge-num">13</span>
+            </div>
+          </li>
+          <li class="mail-catalog">
+            <i class="icon">❊</i>
+            <span class="title">Sent</span>
+            <div class="badge">
+              <span class="badge-num">284</span>
+            </div>
+          </li>
+          <li class="mail-catalog">
+            <i class="icon">❊</i>
+            <span class="title">Deleted</span>
+            <div class="badge">
+              <span class="badge-num">6</span>
+            </div>
+          </li>
+          <li class="mail-catalog">
+            <span class="title">More></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="block login">
+        <div class="form">
+          <div class="input"><i class="icon">user</i><input type="text" placeholder="Username"></div>
+          <div class="input"><i class="icon">pwd</i><input type="password" placeholder="Password"></div>
+          <div class="submit">
+            <button class="btn btn-large btn-log-in">log in</button>
+          </div>
+        </div>
+      </div>
+      <div class="block profile">
+        <div class="figure-area">
+          <div class="figure">
+            <div class="img"></div>
+          </div>
+          <div class="info">
+            <h3 class="name">Larry Song</h3>
+            <h5 class="career">Engineer from ...</h5>
+          </div>
+        </div>
+        <ul class="profile-meta">
+          <li class="like"><i class="icon">❊</i><span class="num">1231</span></li>
+          <li class="friends"><i class="icon">❊</i><span class="num">7231</span></li>
+          <li class="focus"><i class="icon">❊</i><span class="num">21231</span></li>
+        </ul>
+      </div>
+      <div class="block calendar">
+        <h3 class="title">March,26 2017</h3>
+        <ul class="eventlist">
+          <li class="eventitem">
+            <i class="icon">❊</i>
+            <div class="item">WINTER FEEL</div>
+            <div class="act1">EDIT</div>
+            <div class="act2">COMMENT</div>
+          </li>
+        </ul>
+        <div class="submit">
+          <button class="btn btn-large btn-add-event">add event</button>
+        </div>
+      </div>
+      <div class="block timeclock">
+        <h3 class="title">Time is Money</h3>
+        <span class="add-alarm">+</span>
+        <div class="clock">
+          <div class="hour"><span class="value">05</span><span class="title">HOUR</span></div>
+          <div class="divi divi-1">:</div>
+          <div class="minute"><span class="value">24</span><span class="title">MIN</span></div>
+          <div class="divi divi-2">:</div>
+          <div class="second"><span class="value">19</span><span class="title">SEC</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>
