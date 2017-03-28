@@ -36,7 +36,7 @@ function togglePlayPause(){
   } else {
     console.log('当前为Play状态，点击之后变为pause状态')
     btn_act.dataset.status = 'pause'
-    btn_act.innerHTML = '◢'
+    btn_act.innerHTML = ''
     console.log('暂停')
     v.pause()
   }
