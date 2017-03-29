@@ -1,0 +1,22 @@
+*{box-sizing: border-box;}
+.ani{
+  filter: contrast(20) ;
+  overflow: hidden;
+  border:1px solid red;
+  background: white;
+  zoom:6
+}
+
+.dot{
+  min-width: 40px;min-height: 40px;
+  background: darkcyan;
+  float:left;
+  border-radius: 50%;
+  margin:0 -2px;
+  filter:blur(15px);
+  transition: all 2s;
+}
+
+.ani:hover .dot:nth-child(2){
+  margin-left:10px;
+}

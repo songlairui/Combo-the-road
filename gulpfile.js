@@ -3,7 +3,7 @@ var browserSync = require('browser-sync')
 var reload = browserSync.reload
 
 // 正在工作的目录
-var working_target = '1_practise_ui'
+var working_target = '3_svg_ani'
 
 gulp.task('serve', function(){
   browserSync({
