@@ -9,14 +9,67 @@
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <link rel="shortcut icon" sizes="192x192" href="./icon.png">
   <link rel="stylesheet" href="styles/main.css">
+  <style>
+    header{
+      filter: url('#goo')
+    }
+    div.cross{
+      border: yellow solid thin;
+      filter: url('#goo')
+    }
+  </style>
 </head>
 <body>
+  
+<header>
+  <nav></nav>
+  <div class="menu-trigger">
+    <span></span>
+  </div>
+</header>
   <h1>SVG filter</h1>
   <div class="stage">
     <div class="block ani">
       <div class="dot"></div>
       <div class="dot"></div>
     </div>
+    <div class="block cross">
+      <div class="line">line</div>
+      <div class="circle">circle</div>
+    </div>
   </div>
+<!-- SVG -->
+<svg>
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5"/>
+      <feColorMatrix in="blur" result="colormatrix"
+        type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 18 -8" />
+      <feBlend in="SourceGraphic" in2="colormatrix"/>
+      
+    </filter>
+  </defs>
+</svg>
+
+  <svg>
+    <defs>
+      <filter id="goo1">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation='5'></feGaussianBlur>
+        <feColorMatrix in='blur' result='colormatix' type='matrix'
+          values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0 
+            0 0 0 18 -8
+          "
+        ></feColorMatrix>
+        <feBlend in='SourceGraphic' in2='colormatrix'></feBlend>
+      </filter>
+    </defs>
+  </svg>
 </body>
 </html>
