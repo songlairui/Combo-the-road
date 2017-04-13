@@ -1,0 +1,45 @@
+*{
+  box-sizing: border-box;
+}
+html,
+body,
+h1,h3,h5,h6,
+ul,ol,li {
+  padding: 0;
+  margin: 0
+}
+
+body{min-height:2000px;}
+    .totop{
+      position:fixed;
+      bottom:0px;left:calc(50% - 150px);
+      min-height:100px;
+      min-width:100px;
+      position:0;
+      cursor:pointer
+    }
+    .totop a{
+      position:relative;
+      display: inline-block;
+      min-height:100px;
+      min-width:100px;
+      line-height:60px;
+      text-decoration:none;
+      text-align:center;
+      z-index:1;
+      color:white;
+    }
+    .totop a span{
+      z-index:10;
+      position:relative;
+    }
+    .totop a:before{
+      content:'';
+      position:absolute;
+      left:0;top:0;
+      border:50px solid darkcyan;
+      border-right-color:transparent;
+      border-left-color:transparent;
+      border-top:none;
+      z-index:2
+    }

@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "new": "node tools/new.js",
+    "s": "node tools/switch.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

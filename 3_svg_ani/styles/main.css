@@ -1,0 +1,88 @@
+*{box-sizing: border-box;}
+.ani{
+  /*filter: contrast(20) ;*/
+  overflow: hidden;
+  /*zoom:6*/
+}
+
+.dot{
+  min-width: 40px;min-height: 40px;
+  background: darkcyan;
+  float:left;
+  border-radius: 50%;
+  margin:0 -2px;
+  /*filter:blur(15px);*/
+  transition: all 2s;
+}
+
+.ani:hover .dot:nth-child(2){
+  margin-left:10px;
+}
+
+.cross{
+  border:thin rebeccapurple solid;
+  background: blue;
+  overflow: hidden;
+  /*filter: blur(5px) contrast(20);*/
+  /*filter: url(#goo)*/
+}
+
+.line{
+  background: white;
+  height:20px;
+}
+.circle{
+  width:40px;
+  height:40px;
+  float:left;
+  margin-top:-10px;
+  margin-left:60px;
+  background: white;
+  border-radius: 50%;
+  overflow: visible
+}
+
+body {
+  background-color: #3596ab;
+  height: 2000px;
+}
+
+header {
+    /*filter: url("../index.html#goo");*/
+}
+header nav {
+  background-color: #fff;
+  height: 80px;
+}
+header .menu-trigger {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  top: 15px;
+  right: 40px;
+}
+header .menu-trigger span,
+header .menu-trigger span::before,
+header .menu-trigger span::after {
+  background-color: #555;
+  width: 25px;
+  height: 2px;
+  position: absolute;
+}
+header .menu-trigger span {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+header .menu-trigger span::before {
+  content: "";
+  top: -6px;
+}
+header .menu-trigger span::after {
+  content: "";
+  top: 6px;
+}

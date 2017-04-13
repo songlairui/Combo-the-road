@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>美化Select</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <main>
+    <div class="stage">
+      <div class="native">
+        <select name="native" id="native">
+          <option value="1">鸭</option>
+          <option value="2">鹅</option>
+          <option value="3">鸡</option>
+          <option value="4">四</option>
+        </select>
+      </div>
+      <div class="styled">
+        <select name="styled" id="styled" multiple>
+          <option value="1">鸭</option>
+          <option value="2">鹅</option>
+          <option value="3">鸡</option>
+          <option value="4">四</option>
+        </select>
+      </div>
+      <div class="rebuild">
+        <select name="rebuild" id="rebuild" multiple>
+          <option value="1">鸭</option>
+          <option value="2">鹅</option>
+          <option value="3">鸡</option>
+          <option value="4">四</option>
+        </select>
+        <blockquote>单项绑定</blockquote>
+        <div class="reSelect">
+          <ul>
+            <li data-value='1'><span>鸭</span></li>
+            <li data-value='2'><span>鹅</span></li>
+            <li data-value='3'><span>鸡</span></li>
+            <li data-value='4'><span>四</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>

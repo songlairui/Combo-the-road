@@ -3,7 +3,7 @@ var browserSync = require('browser-sync')
 var reload = browserSync.reload
 
 // 正在工作的目录
-var working_target = '2_random_layout'
+var working_target = '8_custome_select'
 
 gulp.task('serve', function(){
   browserSync({
