@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="styles/flex.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ greeting }}</h1>
+    <ul>
+      <li>
+        To learn more about Vue, visit
+        <a :href="docsURL" target="_blank">
+          {{ humanizeURL(docsURL) }}
+        </a>
+      </li>
+      <li>
+        For live help with simple questions, check out
+        <a :href="gitterURL" target="_blank">
+          the Gitter chat
+        </a>
+      </li>
+      <li>
+        For more complex questions, post to
+        <a :href="forumURL" target="_blank">
+          the forum
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="stage stage2">
+    <div class="item-block ib1">
+      <div class="items"></div>
+      <div class="items ani">
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items hr-2">横向两个</div>
+      <div class="items"></div>
+    </div>
+    <div class="item-block ib2">
+      <div class="items vt-2">纵向两个</div>
+      <div class="item-block">
+        <div class="items"></div>
+        <div class="items"></div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>

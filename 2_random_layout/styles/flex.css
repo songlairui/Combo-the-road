@@ -1,0 +1,95 @@
+.stage {
+  border: 1px solid red;
+  min-height: 100px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.items {
+  flex: 1 calc(16.66% - 10px);
+  margin: 5px;
+  box-sizing: border-box;
+  height:0;
+  padding-top:calc(16.66% - 10px);
+  /*min-height: 160px;*/
+  min-width: 50px;
+  border: thin dotted blue;
+}
+.item-block .items{
+  height: auto;
+  padding-top: calc(25% - 10px);
+}
+.vt-2 {
+  flex: 2 calc(16.66% - 10px);
+}
+
+.hr-2 {
+  flex: 2 calc(33.33% - 10px);
+}
+
+.item-block {
+  border: thin dotted green;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ib1 {
+  flex: 2;
+}
+
+.ib1 .items {
+  flex: calc(25% - 10px)
+}
+
+.ib1 .items.hr-2{
+  flex: calc(50% - 10px)
+}
+
+.ib2 {
+  flex: 1;
+}
+
+.ib2 .items {
+  flex: calc(50% - 10px)
+}
+.ib2 .item-block{
+  flex: calc(50% - 10px)
+}
+.ib2 .item-block .items{
+  flex: calc(100% - 10px)
+}
+
+/* 模糊dot */
+.ani{filter: contrast(20)}
+.dots{
+  min-height: 100px;
+  background: #fff;
+  filter: blur(6px);
+  border-radius: 5%;
+  overflow: hidden;
+  transition: all .2s;
+  float:left;
+  padding:40px ;
+}
+.dot{
+  min-width: 40px;
+  min-height: 40px;
+  margin:3px;
+  background: darkblue;
+  float: left;
+  border-radius: 15px;
+  transition: all .2s;
+}
+/*
+.dots:hover{
+  filter: contrast(1);
+}
+.dots:hover .dot{
+  filter: blur(0px);
+}*/
+.dots:hover .dot:nth-child(1){
+  margin-left:80px;
+}
+.dots:hover .dot:nth-child(2){
+  margin-left:-80px;
+}
