@@ -86,13 +86,14 @@ blockquote {
   border-radius: 50%;
 }
 
-.clock [class^='circle'] .border{
+
+/*.clock [class^='circle'] .border{
   position: absolute;
   top:0;left:0;
   width: 100%;height:100%;
   border-radius: 50%;
-  /*border: 3px solid rgba(255, 255, 255, .2);*/
-}
+  border: 3px solid rgba(255, 255, 255, .2);
+}*/
 
 .clock .circle1 {
   min-height: 500px;
@@ -115,45 +116,51 @@ blockquote {
   margin-left: -100px;
 }
 
-.clock .above .circle1{
+/* 使用currentColor 在动画周期 50% 初会出现闪烁*/
+/* 只能麻烦点儿写css了*/
+.clock .circle1 {
   color: #F04C4C;
 }
 
-.clock .above .circle2{
+.clock .circle2 {
   color: #00A9FF;
 }
 
-.clock .above .circle3{
+.clock .circle3 {
   color: #1DD100;
 }
 
-.clock .above .circle1{
+.clock .above .circle1 {
   border-color: #F04C4C;
 }
 
-.clock .above .circle2{
+.clock .above .circle2 {
   border-color: #00A9FF;
 }
 
-.clock .above .circle3{
+.clock .above .circle3 {
   border-color: #1DD100;
 }
 
 .clock .above [class^='circle']::before {
-  content:'';
+  content: '';
   display: block;
   position: absolute;
-  z-index:19;
-  top:-3px;left:50%;
+  z-index: 19;
+  top: -3px;
+  left: 50%;
   width: 50%;
   height: 100%;
   border: 3px solid #1A1F25;
   border-radius: 0 100% 100% 0/50%;
-  border-left:none;
+  border-left: none;
   transform-origin: left;
   animation: spin 3s linear 0s infinite, color 6s step-end 0s infinite;
 }
+
+
 /*
+ // 使用js，根据当前时间添加 下列 样式
 .clock .above .circle1::before {
   animation: spin .5s linear 0s infinite, color 1s step-end 0s infinite;
 }
@@ -166,16 +173,17 @@ blockquote {
 */
 
 .clock .above [class^='circle']::after {
-  content:'';
+  content: '';
   display: block;
   position: absolute;
-  z-index:11;
-  top:-3px;left:-3px;
+  z-index: 11;
+  top: -3px;
+  left: -3px;
   width: 50%;
   height: 100%;
   border-radius: 100% 0 0 100% /50%;
-  border:3px solid  #1A1F25;
-  border-right:none;
+  border: 3px solid #1A1F25;
+  border-right: none;
 }
 
 @keyframes spin {
@@ -189,3 +197,83 @@ blockquote {
     border-color: currentColor
   }
 }
+
+
+/* 做出来dot */
+
+
+/* 数字需要改变，放在dot中，圆圈需要保持位置，固定宽和高，放在伪元素中*/
+
+.clock .grooves [class^='circle'] .dot {
+  position: absolute;
+  top: -21px;
+  left: calc(50% - 20px);
+  z-index: 999;
+  width: 40px;
+  height: calc(100% + 42px);
+  /*border:1px solid snow;*/
+  animation: dotSpin 3s linear 0s infinite;
+}
+
+.clock .grooves [class^='circle'] .dot .text {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  background: #1A1F25;
+  animation: dotTextSpin 3s linear 0s infinite;
+}
+
+
+/* 如果边框不是圆形。需要边框旋转。就使用伪元素*/
+/*.clock [class^='circle'] .dot::before{
+  content:'';
+  display: block;
+  width: 36px;height:36px;
+  border-radius: 30% / 30%;
+  border:2px solid currentColor;
+  background: #1A1F25;
+}*/
+
+@keyframes dotSpin {
+  to {
+    transform: rotate(1turn)
+  }
+}
+
+@keyframes dotTextSpin {
+  to {
+    transform: rotate(-1turn)
+  }
+}
+
+/* 初始化圆圈位置
+
+.clock .grooves .circle1 .dot {
+  animation: dotSpin 2s linear 0s infinite;
+}
+.clock .grooves .circle1 .dot .text {
+  animation: dotTextSpin 2s linear 0s infinite;
+}
+
+.clock .grooves .circle2 .dot {
+  animation: dotSpin 3600s linear 0s infinite;
+}
+.clock .grooves .circle2 .dot .text {
+  animation: dotTextSpin 3600s linear 0s infinite;
+}
+
+.clock .grooves .circle3 .dot {
+  animation: dotSpin 43200s linear 0s infinite;
+}
+.clock .grooves .circle3 .dot .text {
+  animation: dotTextSpin 43200s linear 0s infinite;
+}
+
+*/
