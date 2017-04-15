@@ -1,18 +1,125 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Template</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <title>img-placeholder Vue</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <style scoped>
+    h1,
+    h2 {
+      font-weight: normal;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    
+    a {
+      color: #42b983;
+    }
+    
+    .img-pool {}
+    
+    .img-pool .line {
+      display: flex;
+    }
+    
+    .img-pool .line .img-wrapper {
+      flex: 1;
+      margin: .5em;
+      overflow: hidden;
+    }
+    
+    .img-pool .line .img-wrapper img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      transform: scale(1.3)
+    }
+    
+    .img-pool .line .img-wrapper img.ani-init {
+      filter: blur(30px);
+    }
+    
+    .img-pool .line .img-wrapper img.ani-processing {
+      transition: all 1.3s;
+    }
+    
+    .img-pool .line .img-wrapper img.ani-end {
+      filter: blur(0px);
+      transform: scale(1.0)
+    }
+  </style>
 </head>
 
 <body>
-  <main>
-  </main>
-  <script src="scripts/index.js"></script>
+  <div id="app">
+
+    <div class="img-pool">
+      <div class="line">
+        <div class="img-wrapper">
+          <img :src='imglist[0].src' alt="abc" :class='[imglist[0].class]'></div>
+      </div>
+      <div class="line">
+        <div class="img-wrapper">
+          <img :src='imglist[1].src' alt="abc" :class='[imglist[1].class]'></div>
+        <div class="img-wrapper">
+          <img :src='imglist[2].src' alt="abc" :class='[imglist[2].class]'></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+
+        imgpool: [['https://ooo.0o0.ooo/2017/04/11/58ec3b5dd0c23.jpeg',
+          'https://ooo.0o0.ooo/2017/04/11/58ec3b5d6d7fb.png'],
+        ['https://ooo.0o0.ooo/2017/04/11/58ec3b5da2afd.png',
+          'https://ooo.0o0.ooo/2017/04/11/58ec3b5d6e958.png'],
+        ['https://ooo.0o0.ooo/2017/04/11/58ec3b5da1aa6.png',
+          'https://ooo.0o0.ooo/2017/04/11/58ec3b5d71cd0.png']],
+        imglist: [
+          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d6d7fb.png', class: 't1 tt' },
+          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d6e958.png', class: 't2' },
+          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d71cd0.png', class: 't3' }]
+      },
+      methods: {
+      },
+      created() {
+        console.log('载入之后执行')
+        for (let i = 0, length = this.imglist.length; i < length; i++) {
+          console.log(`第${i}个元素`)
+          let vm = this
+          setTimeout(function () {
+            console.log(`第${i}个timer`)
+            let tmpImg = document.createElement('img')
+            tmpImg.src = vm.imgpool[i][0]
+            tmpImg.onload = function () {
+              vm.imglist[i].class = 'ani-init'
+              vm.imglist[i].src = vm.imgpool[i][0]
+              //vm.imglist.splice(i,1,vm.imgpool[i][0])
+              //vm.imglist[i] = vm.imgpool[i][0]
+              setTimeout(function () {
+                vm.imglist[i].class = 'ani-init ani-processing'
+              }, 0)
+              setTimeout(function () {
+                vm.imglist[i].class = 'ani-end ani-processing'
+              }, 100)
+            }
+          }, 800 * (i + 1))
+        }
+      }
+    })
+  </script>
 </body>
 
 </html>

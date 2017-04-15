@@ -3,7 +3,7 @@ var browserSync = require('browser-sync')
 var reload = browserSync.reload
 
 // 正在工作的目录
-var working_target = '5_clock_ani'
+var working_target = '6_img_placeholder'
 
 gulp.task('serve', function(){
   browserSync({
