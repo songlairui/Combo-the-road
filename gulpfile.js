@@ -3,7 +3,7 @@ var browserSync = require('browser-sync')
 var reload = browserSync.reload
 
 // 正在工作的目录
-var working_target = '9_moment'
+var working_target = '10_event_delegation'
 
 gulp.task('serve', function(){
   browserSync({

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Template</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <main>
+    <div class="stage">
+      <h2>Stage</h2>
+      <div class="parent-1">
+        parent 1 <span class="tip primary">捕获</span> <span class="tip primary">阻止冒泡</span>
+        <div class="child-1">child 1-1</div>
+        <div class="child-2">child 1-2</div>
+      </div>
+      <div class="parent-2">
+        parent 2 <span class="tip primary">冒泡</span>
+        <div class="child-1">child 2-1 <span class="tip primary">阻止冒泡</span></div>
+        <div class="child-2">child 2-2</div>
+        <div class="child-3">child 2-3 <input type="checkbox" name="testDefault" id="tD"> <label for="tD">测试 preventDefault</label></div>
+      </div>
+
+      <div class="parent-3">
+        parent 3 <span class="tip primary">事件委托</span>
+        <div class="child-1">child 2-1 <span class="tip primary">子元素不添加事件监听</span></div>
+        <div class="child-2">child 2-2</div>
+      </div>
+    </div>
+    <div class="stage1">
+      <h2>matches 方法</h2>
+      <div>获取child1元素，是否匹配选择符：.parent-1 .child-1</div>
+      <div class="code">var target = document.querySelector('.parent-1 .child-1')
+target.matches('.child-1') // true
+target.matches('.parent-1 .child-1') // true
+target.matches("[class^='parent'] [class^='child']") // true
+target.matches('.parent-2 .child-1') // false
+      </div>
+    </div>
+    <div class="stage2">
+      <h2>stopPropagation</h2>
+      <p>各个parent,child元素在点击时，会在当前元素上添加‘已点击’字样。</p>
+      <p>parent1 元素添加的监听事件中，加入了阻止冒泡方法。</p>
+      <p>阻止冒泡的元素child-21，会只在其本身上添加一个已点击，后续的事件被阻止。</p>
+      <p>未阻止冒泡的child-22，点击之后，本身添加一个‘已点击’，冒泡到的父元素也有一个‘已点击’</p>
+      <p>child-22,child-23 点击，都会冒泡到父元素被点击。</p>
+    </div>
+    <div class="stage3">
+      <h2>preventDefault</h2>
+      <p>child-23中，有一个表单元素，添加了e.preventDefault(), 点击事件不能令checkbox选中</p>
+    </div>
+    <div class="stage4">
+      <h2>事件委托</h2>
+      <p>parent3 元素使用事件委托，只添加一个监听器到父元素</p>
+      <p>操作dom动态增加节点时，使用事件委托，不需要额外进行增加监听器的操作。</p>
+      <p>技巧的feel: 改变思路，将要做的事情集中到一个中心的位置上，集中解决。</p>
+      <p>写了一个searchEl方法。用来查找想要选取的元素。不够优雅。</p>
+    </div>
+  </main>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>

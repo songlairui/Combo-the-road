@@ -1,0 +1,62 @@
+*{
+  box-sizing: border-box;
+}
+html,
+body,
+h1,h3,h5,h6,
+ul,ol,li {
+  padding: 0;
+  margin: 0
+}
+
+main{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[class^='stage']{
+  flex:1 320px;
+  margin:20px;
+  padding: 20px;
+  box-sizing: border-box;
+  border:thin sandybrown solid;
+  border-radius: 4px;
+}
+
+.stage{
+  flex:1 100%;
+}
+
+[class^='parent']{
+  background: sandybrown;
+  padding: 10px;
+  margin:5px;
+}
+[class^='child']{
+  background: skyblue;
+  padding:5px;
+  margin:5px;
+}
+
+.code{
+  white-space: pre;
+  background: snow;
+  border-radius: 5px;
+  padding:.5em;
+  font-family: Courier New, Courier, monospace;
+  font-size:.8em;
+}
+
+.tip{
+  font-size:.6em;
+  border-radius: 4px;
+  background: saddlebrown;
+  color: white;
+  padding: 0 .4em;
+  margin:0 .3em;
+}
+
+.tip.primary{
+  background: navy;
+  color:sandybrown;
+}
