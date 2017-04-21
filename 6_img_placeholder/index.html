@@ -3,7 +3,7 @@
 
 <head>
   <title>img-placeholder Vue</title>
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="./scripts/vue.min.js"></script>
   <style scoped>
     h1,
     h2 {
@@ -88,9 +88,9 @@
         ['https://ooo.0o0.ooo/2017/04/11/58ec3b5da1aa6.png',
           'https://ooo.0o0.ooo/2017/04/11/58ec3b5d71cd0.png']],
         imglist: [
-          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d6d7fb.png', class: 't1 tt' },
-          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d6e958.png', class: 't2' },
-          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d71cd0.png', class: 't3' }]
+          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d6d7fb.png', class: 'ani-init ani-processing' },
+          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d6e958.png', class: 'ani-init ani-processing' },
+          { src: 'https://ooo.0o0.ooo/2017/04/11/58ec3b5d71cd0.png', class: 'ani-init ani-processing' }]
       },
       methods: {
       },
@@ -104,16 +104,16 @@
             let tmpImg = document.createElement('img')
             tmpImg.src = vm.imgpool[i][0]
             tmpImg.onload = function () {
-              vm.imglist[i].class = 'ani-init'
+              // vm.imglist[i].class = 'ani-init ani-processing'
               vm.imglist[i].src = vm.imgpool[i][0]
               //vm.imglist.splice(i,1,vm.imgpool[i][0])
               //vm.imglist[i] = vm.imgpool[i][0]
-              setTimeout(function () {
-                vm.imglist[i].class = 'ani-init ani-processing'
-              }, 0)
+              // setTimeout(function () {
+              //   vm.imglist[i].class = 'ani-init ani-processing'
+              // }, 0)
               setTimeout(function () {
                 vm.imglist[i].class = 'ani-end ani-processing'
-              }, 100)
+              }, 1)
             }
           }, 800 * (i + 1))
         }
