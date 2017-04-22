@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>控制面板</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="scripts/vue.min.js"></script>
+  <script src="scripts/vue-router.min.js"></script>
+  <script src="scripts/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>{{ title }}</h1>
+      <extra-item></extra-item>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <router-link :to="'/1'">文字</router-link>
+        </li>
+        <li>
+          <router-link :to="{name:'delivery'}">发货</router-link>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <router-view class="line"></router-view>
+      <!--<div class="bq" v-for='item in menu.流程'>
+        {{ item }}
+      </div>-->
+      <div class="level- tmp">
+        <div class="level-grain" v-for='itemGrain in allProduct'>
+          <div class="level-shape" v-for='itemShape in itemGrain'>
+            <div class="level-color" v-for='item in itemShape'>
+              {{ item }}  <span class='value' :title='item'> 0 </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="handler" @click='toggleEdit'></div>
+        <div class="toast">{{ toast }}</div>
+    </main>
+    <footer>
+      Powered By Vue.js
+    </footer>
+  </div>
+  <script src="scripts/components.js"></script>
+  <script src="scripts/data.js"></script>
+  <script src="scripts/config.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>
