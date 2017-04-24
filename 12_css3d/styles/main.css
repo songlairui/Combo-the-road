@@ -8,3 +8,198 @@ ul,ol,li {
   padding: 0;
   margin: 0
 }
+
+main{ 
+  display: flex;
+  flex-flow: column-reverse;
+}
+
+[class^=step] {
+  margin:.5em;
+  padding:.5em;
+  border:thin seagreen solid;
+  border-radius: 1px;
+}
+
+
+.step-2{
+  perspective: 1000px;
+}
+.t-target{
+  margin: 20px;
+  min-height: 170px;
+  min-width: 200px;
+  border: thin solid indianred;
+  background: rgba(234,23,2,.3);
+  transform: translateZ(-100px);
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  /*perspective: 1000px;*/
+  /*transform: rotateX(0deg) rotateY(0deg);*/
+  transform-style: preserve-3d;
+  /*transition: transform .3s;*/
+  /*animation: heart 1s linear 0s infinite alternate;*/
+}
+
+.t-target [class^=b]{
+  display: flex;
+  transform-style: preserve-3d;
+  flex:1 30%;
+  flex-wrap: wrap;
+  /*perspective:1000px;*/
+  background: rgba(255,255,25,.3);
+  border:navy thin solid;
+  min-width: 100px;min-height: 50px;
+  transform: translateZ(50px);
+  margin:10px;
+  border-radius: 10px;
+}
+.t-target [class^=b] ~ [class^=b]{
+  transform: translateZ(80px);
+}
+
+@keyframes heart{
+  from{
+    transform: translateZ(-100px) rotateX(.3turn)
+  }
+  to{
+    transform: translateZ(-200px) rotateX(1.3turn)
+  }
+}
+
+@keyframes reset{
+  to{
+    transform : translateX(0px) translateY(0px) rotateX(0deg) rotateY(0deg)
+  }
+}
+
+.eyes{
+  display: flex;
+}
+.eyes ._eye{
+  flex-basis:40%;
+  margin:2vw;
+}
+.eyes .eye{
+  min-height: 40vw;
+  min-width: 40vw;
+  position: relative;
+  transform: translateZ(10px) rotateX(0deg);
+  transform-style: preserve-3d;
+  background: silver;
+}
+.eyes .eye,.eyes .eye::before,.eyes .eye::after,.eye .dot{
+  /*border:thin silver solid;*/
+  border-radius: 50%;
+}
+
+.eyes .eye::before,.eyes .eye::after,.eye .dot{
+  content:'';
+  display: block;
+  position: absolute;
+  left:25%;
+  top:25%;
+  width: 50%;
+  height:50%;
+  transform: translateZ(5vw);
+  opacity: .8
+}
+.eyes .eye::after{
+  content:'';
+  display: block;
+  position: absolute;
+  left:35%;
+  top:35%;
+  width: 30%;
+  height:30%;
+  transform: translateZ(10vw)
+}
+.eyes .eye .dot{
+  position: absolute;
+  left:45%;
+  top:45%;
+  width: 10%;
+  height:10%;
+  transform: translateZ(15vw)
+}
+
+.eyes .eye::before{
+  background: red;
+}
+.eyes .eye::after{
+  background: black;
+}
+.eyes .eye .dot{
+  background: lightblue;
+}
+
+/* 试验的 step-6 */
+
+.step-6 , .step-6 .view{
+  min-height: 400px;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+.step-6 .view{
+  background: rgba(0,0,0,.3);
+  transform-origin: center center 90px;
+  /*transform: rotateX(-20deg) rotateY(40deg);*/
+  animation: rotateA 2s linear 0s infinite ;
+}
+.step-6 [class^='axis']{
+  border-left:20px goldenrod solid;
+  position: absolute;
+  left:50%;
+  top:50%;
+  /*width: 1000px;*/
+  height:0px;
+  background: rgba(0,0,0,.3);
+  transform-origin: 20px 0px 0;
+  transform-style: preserve-3d;
+  /*display: flex;*/
+  /*justify-content: flex-end;*/
+}
+.axis-1{
+  transform: rotateY(0deg)
+}
+.axis-2{
+  transform: rotateY(30deg)
+}
+.axis-3{
+  transform: rotateY(60deg)
+}
+.axis-4{
+  transform: rotateY(90deg)
+}
+
+.step-6 [class^='axis'] .c{
+  /*position: absolute;*/
+  /*right:0;*/
+  /*transform-style: preserve-3d;*/
+  margin :0 0 0 200px;
+  width:100px;
+  min-height:100px;
+  background: rgba(234,23,2,.3);
+  transform-origin: center;
+  transform: rotateY(-90deg);
+  /*animation: rotateA2 2s linear 0s infinite ;*/
+}
+
+
+
+@keyframes rotateA {
+  0% {
+    transform: rotateX(-20deg) rotateY(0deg) translateZ(90px)
+  }
+  100% {
+    transform: rotateX(-20deg) rotateY(360deg) translateZ(90px)
+  }
+}
+@keyframes rotateA2 {
+  from {
+    transform: rotateY(0deg)
+  }
+  to {
+    transform: rotateY(45deg)
+  }
+}
