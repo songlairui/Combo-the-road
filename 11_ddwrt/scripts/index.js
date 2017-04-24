@@ -9,6 +9,9 @@ var myapp = new Vue({
       editable:false
     }
   },
+  created () {
+
+  },
   computed: {
     allProduct() {
       var src = product_attr
@@ -22,6 +25,9 @@ var myapp = new Vue({
     toggleEdit(){
       this.editable = !this.editable
       this.toast = this.editable ? '编辑状态':''
+    },
+    test(){
+      console.info('toast')
     }
   },
   components: {

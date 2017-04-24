@@ -33,7 +33,7 @@
         {{ item }}
       </div>-->
       <div class="level- tmp">
-        <div class="level-grain" v-for='itemGrain in allProduct'>
+        <div class="level-grain" v-for='itemGrain in allProduct' v-on:ontouch='test'>
           <div class="level-shape" v-for='itemShape in itemGrain'>
             <div class="level-color" v-for='item in itemShape'>
               {{ item }}  <span class='value' :title='item'> 0 </span>

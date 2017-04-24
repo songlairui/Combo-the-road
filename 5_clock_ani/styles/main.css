@@ -29,6 +29,10 @@ body {
   box-shadow: 0 0 14px -4px #000, 0 0 34px -14px #000, 0 0 64px -34px #000;
 }
 
+body{
+  display: flex;
+  flex-flow: column-reverse wrap;
+}
 .meta {
   padding: 1em;
 }
