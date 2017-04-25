@@ -37,11 +37,12 @@ JavaWeb项目，公司私有框架(基于Hibernate)构建。我在此项目开�
  线下活动组建的协作小组共同完成的前后端分离网站 www.coding-show.com 前端部分。我是主要贡献者。
  使用了Vue全家桶。实现了一定程度的组件化。 
 
- - [最近的Demo](http://resume.songlairui.cn/Combo-the-road/#list) 近期的Demo  
+ - [最近的Demo](https://songlairui.github.io/Combo-the-road/#list) 近期的Demo  
  付费学习之后做的一些Demo  
- 其中 [时钟](http://resume.songlairui.cn/Combo-the-road/5_clock_ani/) 完整程度较高。  
+ 其中 [时钟](https://songlairui.github.io/Combo-the-road/5_clock_ani/) 、  
+ [UI套件](https://songlairui.github.io/Combo-the-road/1_practise_ui/) 完整程度较高。
 
- - [上一版本的Demo](http://resume.songlairui.cn/Practices-Demos/#文件夹部署) 先前的Demos  
+ - [上一版本的Demo](https://songlairui.github.io/Practices-Demos/#文件夹部署) 先前的Demos  
  自学状态下完成的一些demo。
 
 ## 文字
@@ -107,6 +108,7 @@ JavaWeb项目，公司私有框架(基于Hibernate)构建。我在此项目开�
 2、精通html5、css3，有CSS预处理开发经验，如less或sass；  
 就html5新特性做过一些demo，如[webaudio](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/webaudio)、[TouchEvent](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/multitouch)、[hash](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/hashchange)、[Canvas](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/canvas-ani)、[WebGL](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/webgl)。 
 Demo库中较多的使用CSS3。   
+模仿的[UI套件](https://songlairui.github.io/Combo-the-road/1_practise_ui/)能见一些个人CSS功底。
 CSS预处理使用过stylus。个人观点，这是个锦上添花的技能，CSS基础足够好，能够快速融入协作环境。
 
 3、有扎实的JavaScript功底，熟悉ES6，熟悉各种设计模式，具备组件化开发思维，有前端架构经验优先；  
