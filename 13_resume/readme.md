@@ -67,7 +67,7 @@ JavaWeb项目，公司私有框架(基于Hibernate)构建。我在此项目开�
 - 云和开放平台：LeanCloud  
 Demo: [leancloud.songlairui.cn](http://leancloud.songlairui.cn)  
 前端使用vue，后端使用leancloud。完成了增删改查，基本的ACL管理。  
-未使用Vuex，登陆部分使用了父子间组建传参。  
+未使用Vuex，登陆部分使用了父子间组件传参。  
 [Repo](https://coding.net/u/lary/p/aryLcloud)  
 配置文件有secret key，未公开。
 
@@ -75,7 +75,7 @@ Demo: [leancloud.songlairui.cn](http://leancloud.songlairui.cn)
 
 - 前端框架：Angular  
 完成官网Hero实例。
-- 前端工具：Webpack/Gulp/Stylus/Yeoman
+- 前端工具：Webpack/Gulp/Stylus/Yeoman  
 [初次版本的Coding-Show](https://github.com/HackerValley/Coding-Show-FrontEnd/tree/master/build)  
 自定义配置webpack，多entry分chrunk输出。  
 [Gulp 使用实例](songlairui.github.io/Combo-the-road/)  
