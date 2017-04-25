@@ -11,7 +11,7 @@
  - 宋来瑞/男/1991 
  - 硕士/福州大学材料学 
  - 工作年限：1年
- - Github：http://github.com/songlairui 
+ - Github：[https://github.com/songlairui](https://github.com/songlairui)
 
  - 期望职位：Web前端高级程序员
  - 期望薪资：税前月薪15k~20k
