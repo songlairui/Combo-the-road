@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM 库</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <main>
+    <ul>
+      <li><span>li-item 1</span></li>
+      <li><span>li-item 2</span></li>
+      <li><span>li-item 3</span></li>
+      <li><span>li-item 4</span></li>
+    </ul>
+    <blockquote>照抄了一遍。</blockquote>
+  </main>
+  <script src="lib/dom.js"></script>
+  <script src="scripts/index.js"></script>
+  <script title='assert 脚本'>
+    console.assert(typeof $ === 'function')
+    let items = $('li')
+    console.assert(items.on !== undefined)
+
+    items.on('click', function () {
+      console.log('click')
+    })
+
+    console.assert(items.addClass('hi') === items)
+    items.addClass('hi').removeClass('error')
+
+    items.text('你好')
+
+    let textList = items.text() // ['你好'x4]
+
+    console.assert(items.addEventListener === undefined)
+
+    let item = items.get(0)
+
+    let $item = $(item) // array
+
+    console.assert(item.tagName === 'LI')
+    console.assert(item.addEventListener !== undefined)
+
+    console.assert(item === items[0])
+    console.assert(item.siblings === undefined)
+    console.assert($item.siblings !== undefined)
+
+    // $item 第1个 li
+    // $item.siblings() 返回它的兄弟
+
+    console.assert($item[0] === item)
+
+    let $li = $('li:nth-child(2)') // array
+    $li.siblings().addClass('error')
+    console.assert($li.siblings().previousSelection === $li)
+    console.assert($li.siblings().end() === $li.siblings().previousSelection)
+
+    $li.siblings().removeClass('error').end()
+      .addClass('error')
+
+
+
+    console.assert(typeof item.on === 'undefined')
+    console.assert(typeof $item.on === 'function')
+
+    console.log('运行完毕')
+  </script>
+</body>
+
+</html>
