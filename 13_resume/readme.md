@@ -1,9 +1,3 @@
-# Web前端程序员简历模板
-
-本简历模板由国内首家互联网人才拍卖网站「 [JobDeer.com](http://www.jobdeer.com) 」提供。
-
-（括号里的是我们的顾问编写的说明，建议在简历书写完成后统一删除）
-
 ## 先讲讲怎样才是一份好的技术简历
 
 首先，一份好的简历不光说明事实，更通过FAB模式来增强其说服力。
@@ -28,182 +22,144 @@
 
 
 # 联系方式
-（HR会打印你的简历，用于在面试的时候联系，所以联系方式放到最上边会比较方便）
 
-- 手机：135******** （```如果是外地手机，可注明。如经常关机，要写上最优联系时间```）
-- Email：goodman@gmail.com （```虽然我觉得QQ邮箱无所谓，不过有些技术人员比较反感，建议用G```）
-- QQ/微信号：6*******（```提供一个通过网络可以联系到你的方式```）
+- 手机：17600108400 
+- Email：songlairui@qq.com 
+- QQ：songlairui@qq.com
 
 ---
 
 # 个人信息
 
- - 胶布帝/男/1990 
- - 本科/萌鹿大学计算机系 
- - 工作年限：3年
- - 微博：[@JobDeer](http://weibo.com/jobdeer) （``` 如果没有技术相关内容，也可以不放 ```）
- - 技术博客：http://blog.github.io ( ``` 使用GitHub Host的Big较高 ```  )
- - Github：http://github.com/geekcompany ( ``` 有原创repo的Github帐号会极大的提升你的个人品牌 ```  )
+ - 宋来瑞/男/1991 
+ - 硕士/福州大学材料学 
+ - 工作年限：1年
+ - Github：http://github.com/songlairui 
 
- - 期望职位：Web前端高级程序员，应用架构师
- - 期望薪资：税前月薪15k~20k，特别喜欢的公司可例外
- - 期望城市：北京
+ - 期望职位：Web前端高级程序员
+ - 期望薪资：税前月薪15k~20k
+ - 期望城市：北京、深圳、上海
 
 ---
 
 # 工作经历
-（工作经历按逆序排列，最新的在最前边，按公司做一级分组，公司内按二级分组）
 
-## ABC公司 （ 2012年9月 ~ 2014年9月 ）
+## 上海安硕信息技术股份有限公司 （ 2016年6月 ~ 今 ）
 
-### DEF项目 
-我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
-
-
-### GHI项目 
-我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
-
-
-### 其他项目
-
-（每个公司写2~3个核心项目就好了，如果你有非常大量的项目，那么按分类进行合并，每一类选一个典型写出来。其他的一笔带过即可。）
-
- 
-## JKL公司 （ 2010年3月 ~ 2012年8月 ）
-
-### MNO项目 
-我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
-
-
-### PQR项目 
-我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
-
-
-### 其他项目
-
-（每个公司写2~3个核心项目就好了，如果你有非常大量的项目，那么按分类进行合并，每一类选一个典型写出来。其他的一笔带过即可。）
+### 昆仑银行 产业链金融系统二期项目 
+JavaWeb项目，公司私有框架(基于Hibernate)构建。我在此项目开发了一部分业务模块，如担保物出入库管理，三证合一等。  
+这个项目中遇到的最大问题是，我是一名倾向于前端的程序员。  
 
 ---
 
 # 开源项目和作品
-（这一段用于放置工作以外的、可证明你的能力的材料）
 
 ## 开源项目
-（对于程序员来讲，没有什么比Show me the code能有说服力了）
 
- - [STU](http://github.com/yourname/projectname)：项目的简要说明，Star和Fork数多的可以注明
- - [WXYZ](http://github.com/yourname/projectname)：项目的简要说明，Star和Fork数多的可以注明
+ - [Coding-Show-vue](https://github.com/HackerValley/Coding-Show-vue)：开源项目coding-show    
+ 线下活动组建的协作小组共同完成的前后端分离网站 www.coding-show.com 前端部分。我是主要贡献者。
+ 使用了Vue全家桶。实现了一定程度的组件化。 
 
-## 技术文章
-（挑选你写作或翻译的技术文章，好的文章可以从侧面证实你的表达和沟通能力，也帮助招聘方更了解你）
+ - [最近的Demo](http://resume.songlairui.cn/Combo-the-road/#list) 近期的Demo  
+ 付费学习之后做的一些Demo  
+ 其中 [时钟](http://resume.songlairui.cn/Combo-the-road/5_clock_ani/) 完整程度较高。  
 
-- [一个产品经理眼中的云计算：前生今世和未来](http://get.jobdeer.com/706.get)
-- [来自HeroKu的HTTP API 设计指南(翻译文章)](http://get.jobdeer.com/343.get) （ ```好的翻译文章可以侧证你对英文技术文档的阅读能力```）
+ - [上一版本的Demo](http://resume.songlairui.cn/Practices-Demos/#文件夹部署) 先前的Demos  
+ 自学状态下完成的一些demo。
 
-## 演讲和讲义
-（放置你代表公司在一些技术会议上做过的演讲，以及你在公司分享时制作的讲义）
+## 文字
 
-  - 2014架构师大会演讲：[如何通过Docker优化内部开发](http://jobdeer.com)
- - 9月公司内部分享：[云计算的前生今世](http://jobdeer.com)
+- [《我玩了两遍Frog游戏》](http://www.jianshu.com/p/4a9d4aea1939)  
+学习flex布局的个人思考。可以一定程度展现个人的思维方式  
+
+- [手机ROM刷机教程](https://amar.songlairui.cn/m2note-flyme-5-5-12-31/) 
+这是我通过在xda论坛上爬贴，然后自己翻译成为中文教程，并进行传播的文章。  
+最终的结果是百度云分享的浏览次数上万。
+![share.png](https://ooo.0o0.ooo/2017/04/25/58feb84e170ff.png)  
+英文阅读能力较强。
+
+- 工作博客：[http://amar.songlairui.cn](http://amar.songlairui.cn)  
+工作之中的技术记录。
 
 # 技能清单
-（我一般主张将技能清单写入到工作经历里边去。不过很难完整，所以有这么一段也不错）
-
 以下均为我熟练使用的技能
 
-- Web开发：PHP/Hack/Node
-- Web框架：ThinkPHP/Yaf/Yii/Lavaral/LazyPHP
-- 前端框架：Bootstrap/AngularJS/EmberJS/HTML5/Cocos2dJS/ionic
-- 前端工具：Bower/Gulp/SaSS/LeSS/PhoneGap
-- 数据库相关：MySQL/PgSQL/PDO/SQLite
-- 版本管理、文档和自动化部署工具：Svn/Git/PHPDoc/Phing/Composer
-- 单元测试：PHPUnit/SimpleTest/Qunit
-- 云和开放平台：SAE/BAE/AWS/微博开放平台/微信应用开发
+- 前端框架：Vue
+- 版本管理工具：Git
+- 云和开放平台：LeanCloud
+[leancloud.songlairui.cn](http://leancloud.songlairui.cn)  
+前端使用vue，后端使用leancloud。完成了增删改查，基本的ACL管理。  
+未使用Vuex，登陆部分使用了父子间组建传参。  
+[leancloud.songlairui.cn Repo](https://coding.net/u/lary/p/aryLcloud)  
+配置文件有secret key，未公开。
 
-## 参考技能关键字
+以下为熟悉的技能
 
-本技能关键字列表是从最近招聘Web前端的数百份JD中统计出来的，括号中是出现的词频。如果你的简历要投递给有机器（简历分选系统）和不如机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
+- 前端框架：Angular  
+完成官网Hero实例。
+- 前端工具：Webpack/Gulp/Stylus/Yeoman
+[初次版本的Coding-Show](https://github.com/HackerValley/Coding-Show-FrontEnd/tree/master/build)  
+自定义配置webpack，多entry分chrunk输出。  
+[Gulp 使用实例](songlairui.github.io/Combo-the-road/)  
+创建npm package script，结合gulp，为自己创建正在工作的workdir。  
+- 自动测试：slimeJs/PhantomJs  
+[SlimerJS 使用实例](songlairui.github.io/Combo-the-road/14_auth_js/)  
+- 数据库相关：MySQL/DB2/SQLite  
 
-- web(889)
-- javascript(596)
-- css(555)
-- html(430)
-- jquery(323)
-- html5(312)
-- js(311)
-- ajax(196)
-- css3(176)
-- w3c(168)
-- div(156)
-- php(134)
-- xhtml(106)
-- java(92)
-- ui(78)
-- photoshop(75)
-- dom(63)
-- xml(56)
-- json(54)
-- yui(51)
-- flash(45)
-- bootstrap(43)
-- python(43)
-- http(38)
-- dreamweaver(38)
-- ext(33)
-- linux(33)
-- seo(32)
-- prototype(29)
-- chrome(28)
-- pc(28)
-- nodejs(28)
-- firefox(26)
-- ps(25)
-- angularjs(25)
-- fireworks(24)
-- extjs(23)
-- safari(22)
-- www(22)
-- mobile(22)
-- jsp(22)
-- mvc(22)
-- backbone(21)
-- node(21)
-- ruby(20)
-- github(19)
-- ios(18)
-- ie6(18)
-- android(18)
-- asp(18)
-- sass(17)
-- wap(16)
-- mootools(16)
-- ie(16)
-- mysql(15)
-- flex(14)
-- firebug(13)
-- bom(13)
-- webapp(12)
-- less(12)
-- web2(11)
-- angular(10)
-- git(10)
-- dw(10)
-- as(10)
-- mac(10)
-- psd(8)
-- o2o(7)
-- dojo(7)
-- actionscript3(6)
-- grunt(5)
-- ue(5)
-- zepto(5)
-- actionscript(5)
-- ie8(5)
-- coffeescript(5)
-- django(4)
+以下为曾经熟悉的技能
 
+- Web开发：PHP
+- Web框架：ThinkPHP/Lavaral  
 
+以下为有用的外围技能  
 
+- Linux操作： ChromeOS 系统安装  
+[【cgpt技】安装windows后，修复Chrome OS的启动](http://tieba.baidu.com/p/3633924546?pid=65549761855&cid=0#65549761855)  
+[ChromeOS 与 Windows 8.1 的UEFI 引导方式](http://tieba.baidu.com/p/3857206874?pid=70582146746&cid=0#70582146746)  
+[准备重新走一遍chromeos 的安装](http://tieba.baidu.com/p/3848206643?pid=70373436712&cid=0#70373436712)  
+对linux操作较为熟练，主要工作流很少被外部故障打断。  
+
+---
+
+# 职位要求匹配：
+
+1、3年以上，至少一年以上pc web前端开发经验;  
+07年接触asp，08年接触CSS2。一直关注前端。主要成长在于CSS的熟练程度。  
+工作一年内，前端经验真实增长。
+
+2、精通html5、css3，有CSS预处理开发经验，如less或sass；  
+就html5新特性做过一些demo，如[webaudio](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/webaudio)、[TouchEvent](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/multitouch)、[hash](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/hashchange)、[Canvas](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/canvas-ani)、[WebGL](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/webgl)。 
+Demo库中较多的使用CSS3。   
+CSS预处理使用过stylus。个人观点，这是个锦上添花的技能，CSS基础足够好，能够快速融入协作环境。
+
+3、有扎实的JavaScript功底，熟悉ES6，熟悉各种设计模式，具备组件化开发思维，有前端架构经验优先；  
+[FreeCodeCamp](http://freecodecamp.cn) 刷到315关。JS基础相对稳固。 ES6有阅读英文教程，模板语法，箭头函数使用的较多。  
+在Vue项目开发中，从传统的操作DOM转变到操作变量，较为适应。设计模式经验欠缺，但个人学习能力强。  
+Vue项目开发中，注重将可服用的部分组件化。
+
+4、有angular、vue、react、backbone等MVC/MVVM开发框架经验优先。  
+vue经验及格。
+
+5、熟练使用gulp/grunt、webpack。  
+到达熟悉程度。
+
+6、了解前端自动化测试，并有实施经验优先；  
+通过Yeoman官网的Tutorial了解了单元测试。没有实施经验。
+
+7、至少熟练运用一门后端语言，有Java项目经验优先；
+曾经主要使用的后端语言是php，当前所在项目是Java项目。
+
+8、大型前端项目主要负责人和github开源项目经验者优先；  
+有一定的github开源项目经验。[Coding-Show-vue](https://github.com/HackerValley/Coding-Show-vue)：开源项目coding-show  
+
+---
+
+## 其他  
+
+个人理解与接收能力较强。期待面试时谈论一些自己的idea。  
+对于技术，个人没有鄙视链，或者注重消除潜意识的鄙视链。   
+对于其他人的技术倾向兼容性很好，不会因为个人偏爱影响团队协作。 比如我是JS不加分号党。    
+在校期间个人的技术积累较多，而没有好的项目经验。找到合适的团队之后，能够迅速提高输出。  
 
 ---
 

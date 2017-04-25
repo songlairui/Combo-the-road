@@ -4,7 +4,9 @@
 新建一个repo，此repo存放页面仿制。  
 初级版本 仅 gulp + BrowserSync。
 
-#### 使用方法 
+#### 使用方法  
+
+##### Gukp Serve （with BrowserSync）
 
 1. 更改gulpfile 变量 workingtarget，为正在制作的项目
 2. 执行 `gulp serve`, 启动BrowserSync，使用多屏幕liveReload开发。
@@ -48,7 +50,9 @@ $ npm run s 13
 idea: 抽象音乐画作
 
 - [3_svg_ani](3_svg_ani/) 使用svg滤镜实现粘腻效果  
-svg 的filter  
+滚动滚动条，右上角menu按钮被覆盖时，会展示效果。
+使用了svg 的filter  
+
 
 - [4_hammerjs](4_hammerjs) 页面触控事件尝试  
 使用封装库完成
@@ -80,3 +84,8 @@ rebuilt 同步表单元素状态
 [第22课作业](12_css3d/homework.html)，3D hover，3D眼睛  
 [demo](12_css3d/index.html)  
 [Nested 3d-transforms](https://davidwalsh.name/3d-transforms)  
+
+- [13_resume](13_resume) 个人简历  
+
+- [14_auth_js](14_auth_js) slimeJs 使用实例
+自动点击网页进行网络登陆
