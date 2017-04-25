@@ -64,11 +64,11 @@ JavaWeb项目，公司私有框架(基于Hibernate)构建。我在此项目开�
 
 - 前端框架：Vue
 - 版本管理工具：Git
-- 云和开放平台：LeanCloud
-[leancloud.songlairui.cn](http://leancloud.songlairui.cn)  
+- 云和开放平台：LeanCloud  
+Demo: [leancloud.songlairui.cn](http://leancloud.songlairui.cn)  
 前端使用vue，后端使用leancloud。完成了增删改查，基本的ACL管理。  
 未使用Vuex，登陆部分使用了父子间组建传参。  
-[leancloud.songlairui.cn Repo](https://coding.net/u/lary/p/aryLcloud)  
+[Repo](https://coding.net/u/lary/p/aryLcloud)  
 配置文件有secret key，未公开。
 
 以下为熟悉的技能
