@@ -89,3 +89,6 @@ rebuilt 同步表单元素状态
 
 - [14_auth_js](14_auth_js) slimeJs 使用实例
 自动点击网页进行网络登陆
+
+- [15_dom_lib](15_dom_lib) DOM 库封装  
+了解JQuery怎么做出来的。
