@@ -11,13 +11,39 @@
 
 <body>
   <main>
-    <ul>
-      <li><span>li-item 1</span></li>
-      <li><span>li-item 2</span></li>
-      <li><span>li-item 3</span></li>
-      <li><span>li-item 4</span></li>
-    </ul>
-    <blockquote>照抄了一遍。</blockquote>
+    <div class="stage1">
+
+      <ul>
+        <li><span>li-item 1</span></li>
+        <li><span>li-item 2</span></li>
+        <li><span>li-item 3</span></li>
+        <li><span>li-item 4</span></li>
+      </ul>
+      <blockquote>照抄了一遍。</blockquote>
+    </div>
+    <div class="stage2">
+      <div class="panel">
+        <h3>BOM - API</h3>
+        <button id='openAtCenter' onclick='$.bom.openAtCenter(null,null,"/nonExist")'>BOM - openAtCenter</button>
+        <pre>Search:
+          <script>
+            document.write(window.location.search)
+          </script>
+        </pre>
+        <button onclick='window.location.search=""'>clear Search</button>
+        <a href="/">返回 /</a>
+        <br>
+        <button onclick='$.bom.search("color","red")'>Add Search: color = red</button>
+        <br>
+        <!--<button onclick='window.location.reload()'>Refresh</button>-->
+        <button onclick='$.bom.search("color","green")'>Add Search: color = green</button>
+        <br>
+        <!--<button onclick='window.location.reload()'>Refresh</button>-->
+        <button onclick='$.bom.search("catalog","test")'>Add Search: catalog = test</button>
+        <br>
+        <!--<button onclick='window.location.reload()'>Refresh</button>-->
+      </div>
+    </div>
   </main>
   <script src="lib/dom.js"></script>
   <script src="scripts/index.js"></script>

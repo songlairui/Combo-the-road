@@ -11,11 +11,13 @@ ul,ol,li {
 
 main{
   display: flex;
+  /*flex-direction:column;*/
 }
 
 ul{
   display: flex;
   flex-wrap:wrap;
+  /*flex-flow:column wrap;*/
   padding:.5em;
   background: paleturquoise;
 }
