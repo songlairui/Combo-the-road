@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tabs, 轮播</title>
+</head>
+<body>
+  <h1>25课作业</h1>
+  <p>25课预习   <a href="http://jirengu11.mikecrm.com/9RPWBND">http://jirengu11.mikecrm.com/9RPWBND</a></p>
+  <p>target : <a href="https://frankfang.github.io/wheels/demos/tabs.html">https://frankfang.github.io/wheels/demos/tabs.html</a></p>
+  <hr>
+  <h1>ES6 Class  用法</h1>
+  <p><a href="http://es6.ruanyifeng.com/#docs/class">http://es6.ruanyifeng.com/#docs/class</a></p>
+  <h2>ES5 构造对象的套路</h2>
+  <pre><code>
+    function CustomObject1 (x,y) {
+      this.x = x
+      this.y = y
+    }  
+    CustomObject.prototype.method = function () {
+      return `${this.x} + ${this.y}`
+    }
+  </code></pre>
+  对照：
+  <pre><code>
+    function CustomObject2 (x,y) {
+      this.x = x
+      this.y = y
+      this.method = function(){
+        return `${this.x} + ${this.y}` 
+      }
+    }
+    </code></pre>
+  区别：
+  <pre><code>
+    var o = new CustomObject1
+    var p = new CustomObject2
+
+    o.__proto__.method 存在
+    p.__proto__ 为{}，不存在 method方法
+    
+    </code></pre>
+    结论： 
+      使用new操作符， 生成的对象，__proto__ 指向 构造函数的prototype属性
+    <hr>
+    ES2015 Class 是 基于原型创建对象的语法糖
+    基本例子
+    <pre><code>
+      Class CustomeObject3 {
+        constructor(){
+          console.info('构建函数')
+        }
+
+        method () {
+          console.info('词块中')
+        }
+      }
+      </code></pre>
+</body>
+</html>

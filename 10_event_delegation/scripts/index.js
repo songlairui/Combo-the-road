@@ -79,7 +79,7 @@ window.onload = function () {
 }
   // 查找元素
   function searchEl(Selector,el,parent){
-    parent = parent || documen.documentElement
+    parent = parent || document.documentElement
     // console.log(el), 点击parent
     // 这儿一个bug，我想到了逗号运算符。看起来只能使用逗号运算符调试。
     while(/*console.info(el),*/ !el.matches(Selector)){
