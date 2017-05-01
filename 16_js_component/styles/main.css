@@ -14,6 +14,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-flow:column nowrap;
 }
 main{
   position:relative;
@@ -41,17 +42,17 @@ main::before{
   box-shadow: inset 0 0 3px -1px rgba(0,0,0,.9);
 }
 
-.tabs{
+div[data-role='tabs']{
   /*border: thin solid rgba(0,0,0,.5);*/
   /*background: #000;*/
 }
 
-.tabs ol[data-role='tabs-nav']{
+div[data-role='tabs'] ol[data-role='tabs-nav']{
   display: flex;
 
 }
 
-.tabs ol[data-role='tabs-nav'] li {
+div[data-role='tabs'] ol[data-role='tabs-nav'] li {
   flex: 1;
   color: #847E6F;
   text-shadow: 1px 1px 1px white;
@@ -59,9 +60,10 @@ main::before{
   text-align:center;
   line-height: 3em;
   box-shadow: inset 0 0px 2px 0px rgba(0,0,0,.3);
+  cursor:pointer;
 }
 
-.tabs ol[data-role='tabs-nav'] li.active{
+div[data-role='tabs'] ol[data-role='tabs-nav'] li.active{
   background: linear-gradient(#FEFDF6,#F0EDE6);
   box-shadow: none;
   color:#333;
@@ -72,13 +74,13 @@ main::before{
   background: #F0EDE6;
   display: flex;
 }
-.tabs ol[data-role='tabs-panel']{
+div[data-role='tabs'] ol[data-role='tabs-panel']{
   display: flex;
   flex:1;
 }
 
 
-.tabs ol[data-role='tabs-panel'] li {
+div[data-role='tabs'] ol[data-role='tabs-panel'] li {
   justify-content: center;
   align-items: center;
   flex-basis: 100%;
@@ -86,11 +88,11 @@ main::before{
   display: none;
   /*display: flex;*/
 }
-.tabs ol[data-role='tabs-panel'] li.active{
+div[data-role='tabs'] ol[data-role='tabs-panel'] li.active{
   display:flex;
 }
 
-.tabs ol[data-role='tabs-panel'] li .tip{
+div[data-role='tabs'] ol[data-role='tabs-panel'] li .tip{
   width:64px;
   height: 64px;
   display: flex;
