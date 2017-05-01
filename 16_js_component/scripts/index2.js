@@ -1,4 +1,4 @@
-class TabsC {
+class TabsC0 {
     constructor(options) {
         this.el = document.querySelector(options.el)
         this.selectorNav = '[data-role="tabs-nav"]'
@@ -32,7 +32,7 @@ class TabsC {
     }
 }
 
-class TabsCBatch {
+class TabsC {
     constructor(options) {
         this.el = document.querySelectorAll(options.el)
         this.selectorNav = '[data-role="tabs-nav"]'
