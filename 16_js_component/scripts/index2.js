@@ -55,7 +55,15 @@ class TabsC {
             let panels = this.el[i].querySelectorAll(`${this.selectorPanel}>li`)
             nav.addEventListener('click', function (e) {
                 var target = searchEl('[data-role="tabs-nav"]>li', e.target, e.currentTarget)
+                if(!target){
+                    // 找不到，直接返回
+                    return this
+                }
                 var index = numEl(target, e.currentTarget)
+                if(index === '-1'){
+                    // 找不到，直接返回
+                    return this
+                }
                 // console.info(target, index, that.panels)
                 for (var i = 0; i < panels.length; i++) {
                     // console.info(that.panels)
