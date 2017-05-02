@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+}
+html,
+body,
+h1,h3,h5,h6,
+ul,ol,li {
+  list-style:none;
+  padding: 0;
+  margin: 0
+}
+
+[data-role='slide'] {
+    min-height:100px;
+}
+
+.slides{
+    min-width:100px;
+}
+
+.slides .view {
+    height:100%;
+    display: flex;
+    transition: transform 1s;
+}
+
+.slides .view .slide {
+    flex:1 0 100%;
+}
+
+/* user styles */
+
+.slides{
+    width:300px;
+    border:1px solid red;
+}

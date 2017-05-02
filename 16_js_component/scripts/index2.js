@@ -5,7 +5,7 @@ class TabsC0 {
         this.selectorPanel = '[data-role="tabs-panel"]'
         // this.navs = this.el.querySelectorAll('[data-role="tabs-nav"]>li')
         // this.panels = this.el.querySelectorAll('[data-role="tabs-panel"]>li')
-        this.bindEvent()
+        this.bindEvent().clickDefault()
     }
 
     bindEvent() {
@@ -29,6 +29,11 @@ class TabsC0 {
                 // console.info(panels[i], panels[i].classList)
             }
         })
+        return this
+    }
+
+    clickDefault() {
+
     }
 }
 
@@ -39,7 +44,7 @@ class TabsC {
         this.selectorPanel = '[data-role="tabs-panel"]'
         // this.navs = this.el.querySelectorAll('[data-role="tabs-nav"]>li')
         // this.panels = this.el.querySelectorAll('[data-role="tabs-panel"]>li')
-        this.bindEvent()
+        this.bindEvent().clickDefault()
     }
 
     bindEvent() {
@@ -65,7 +70,14 @@ class TabsC {
                 }
             })
         }
-
+        return this
+    }
+    clickDefault() {
+        // let pool = this.el
+        for(var i = 0; i< this.el.length; i++){
+            this.el[i].querySelector(`${this.selectorNav}>li`).click()
+        }
+        return this
     }
 }
 
