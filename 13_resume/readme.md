@@ -102,16 +102,19 @@ Demo: [leancloud.songlairui.cn](http://leancloud.songlairui.cn)
 # 职位要求匹配：
 
 1、3年以上，至少一年以上pc web前端开发经验;
+
 07年接触asp，08年接触CSS2。一直关注前端。主要成长在于CSS的熟练程度。
 工作一年内，前端经验真实增长。
 
 2、精通html5、css3，有CSS预处理开发经验，如less或sass；
+
 就html5新特性做过一些demo，如[webaudio](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/webaudio)、[TouchEvent](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/multitouch)、[hash](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/hashchange)、[Canvas](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/js/canvas-ani)、[WebGL](https://github.com/songlairui/Practices-Demos/tree/master/Exercises/webgl)。
 Demo库中较多的使用CSS3。
 模仿的[UI套件](https://songlairui.github.io/Combo-the-road/1_practise_ui/)能见一些个人CSS功底。
 CSS预处理使用过stylus。个人观点，这是个锦上添花的技能，CSS基础足够好，能够快速融入协作环境。
 
 3、有扎实的JavaScript功底，熟悉ES6，熟悉各种设计模式，具备组件化开发思维，有前端架构经验优先；
+
 [DOM库](https://github.com/songlairui/Combo-the-road/tree/master/15_dom_lib/lib)
 [FreeCodeCamp](http://freecodecamp.cn) 刷到315关。JS基础相对稳固。
 ES6有阅读英文教程，模板语法，箭头函数使用的较多。Vue中多处使用解构赋值与Obj属性的表达式定义
@@ -120,19 +123,24 @@ ES6有阅读英文教程，模板语法，箭头函数使用的较多。Vue中�
 Vue项目开发中，注重将可复用的部分组件化。
 
 4、有angular、vue、react、backbone等MVC/MVVM开发框架经验优先。
+
 vue经验及格。
 
 5、熟练使用gulp/grunt、webpack。
+
 到达熟悉程度。
 
 6、了解前端自动化测试，并有实施经验优先；
+
 通过Yeoman官网的Tutorial了解了单元测试。没有实施经验。
 使用过console.assert，了解assert函数的简易写法。
 
 7、至少熟练运用一门后端语言，有Java项目经验优先；
+
 曾经主要使用的后端语言是php，当前所在项目是Java项目。
 
 8、大型前端项目主要负责人和github开源项目经验者优先；
+
 有一定的github开源项目经验。[Coding-Show-vue](https://github.com/HackerValley/Coding-Show-vue)：开源项目coding-show
 
 ---
