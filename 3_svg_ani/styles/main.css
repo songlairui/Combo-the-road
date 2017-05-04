@@ -1,17 +1,19 @@
 *{box-sizing: border-box;}
 .ani{
-  /*filter: contrast(20) ;*/
+  filter: blur(3px) contrast(20) ;
+  background: silver;
   overflow: hidden;
-  /*zoom:6*/
+  zoom:3;
+  padding:10px;
 }
 
 .dot{
   min-width: 40px;min-height: 40px;
-  background: darkcyan;
+  background: navy;
   float:left;
   border-radius: 50%;
   margin:0 -2px;
-  /*filter:blur(15px);*/
+  /*filter:contrast(15);*/
   transition: all 2s;
 }
 
@@ -21,7 +23,7 @@
 
 .cross{
   border:thin rebeccapurple solid;
-  background: blue;
+  /*background: blue;*/
   overflow: hidden;
   /*filter: blur(5px) contrast(20);*/
   /*filter: url(#goo)*/
