@@ -61,34 +61,44 @@ window.onload = function () {
   })
 
   // parent3 进行事件委托
-
-  parent3.addEventListener('click', function(e){
+  var logEvent = function (e) {
+    console.log(e.type, e.target, e.currentTarget);
+  }
+  var logType = false
+  parent3.addEventListener('input', logEvent, logType);
+  parent3.addEventListener('keydown', logEvent, logType);
+  parent3.addEventListener('keyup', logEvent, logType);
+  parent3.addEventListener('keypress', logEvent, logType);
+  parent3.addEventListener('click', function (e) {
     // console.log(e.target.matches('div'))
     // return
-    var result = searchEl('.child-1',e.target,e.currentTarget)
-    if(result){
+    var result = searchEl('.child-1', e.target, e.currentTarget)
+    var result2 = searchEl('.child-2', e.target, e.currentTarget)
+
+    console.info(result, result2)
+
+    if (result) {
       result.append(tip('child-1点中'))
     }
-
-    var result2 = searchEl('.child-2',e.target,e.currentTarget)
-    if(result2){
+    if (result2) {
       result2.append(tip('child-2点中'))
     }
+
   })
 
 }
-  // 查找元素
-  function searchEl(Selector,el,parent){
-    parent = parent || document.documentElement
-    // console.log(el), 点击parent
-    // 这儿一个bug，我想到了逗号运算符。看起来只能使用逗号运算符调试。
-    while(/*console.info(el),*/ !el.matches(Selector)){
-      if(el === parent){
-        el = null
-        break
-      }
-      // 之前的bug是 下边这一个语句，放在了while开始部分
-      el = el.parentNode
-    } 
-    return el
+// 查找元素
+function searchEl(Selector, el, parent) {
+  parent = parent || document.documentElement
+  // console.log(el), 点击parent
+  // 这儿一个bug，我想到了逗号运算符。看起来只能使用逗号运算符调试。
+  while (/*console.info(el),*/ !el.matches(Selector)) {
+    if (el === parent) {
+      el = null
+      break
+    }
+    // 之前的bug是 下边这一个语句，放在了while开始部分
+    el = el.parentNode
   }
+  return el
+}
