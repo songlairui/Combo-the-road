@@ -16,7 +16,7 @@ class Slide {
     dots.classList.add('dots')
     var tmp = [].map.call(this.slides,
       (v, i) => {
-        return `<li class='dot'>${i}</li>`
+        return `<li class='dot' data-target='${i}'>${i}</li>`
       }
     ).join('')
 
@@ -26,9 +26,18 @@ class Slide {
     return this
   }
   bindEvent() {
-    this.dots = this.target.querySelector('.dots')
-    this.dots.addEventListener('click',function(e){
-
+    console.info('bind event')
+    var dots = this.target.querySelector('.dots')
+    var slides = this.slides
+    console.info(dots,slides)
+    dots.addEventListener('click',function(e){
+      // console.info(e)
+      if(e.target.matches('.dot')){
+        // console.info('match')
+        let targetIndex = e.target.dataset.target
+        // console.info(slides[targetIndex])
+        slides[targetIndex].style.bgColor='red'
+      }
     })
   }
 }
