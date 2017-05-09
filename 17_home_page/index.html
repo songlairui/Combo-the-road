@@ -5,17 +5,175 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>HOMEPAGE_ windows</title>
+  <title>HOMEPAGE_HLIFEG</title>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="lib/swiper.min.css">
 </head>
 
 <body>
-  <main>
-  </main>
+  <nav id="topbar">
+    <div id="logo"><img src="http://placehold.it/60x60" alt=""></div>
+    <ul class="nav">
+      <li><a href="#siteBanner">开始</a></li>
+      <li><a href="#introduct">介绍</a></li>
+      <li><a href="#products">产品</a></li>
+      <li><a href="#links">链接</a></li>
+    </ul>
+  </nav>
+  <section id="siteBanner">
+    <!-- Swiper -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="http://placehold.it/960x250" alt="">
+          <p>
+            文字
+            <button>购买</button>
+          </p>
+        </div>
+        <div class="swiper-slide"><img src="http://placehold.it/960x250" alt="">
+          <p>
+            文字
+            <button>购买</button>
+          </p>
+        </div>
+        <div class="swiper-slide"><img src="http://placehold.it/960x250" alt="">
+          <p>
+            文字
+            <button>购买</button>
+          </p>
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section id="introduct">
+    <ul>
+      <li>
+        <div class="thumb"><img src="http://placehold.it/600x300" alt=""></div>
+        <div class="desc">
+          <h3>特点</h3>
+          <p>详细</p>
+        </div>
+      </li>
+      <li>
+        <div class="thumb"><img src="http://placehold.it/600x250" alt=""></div>
+        <div class="desc">
+          <h3>特点</h3>
+          <p>详细</p>
+        </div>
+      </li>
+      <li>
+        <div class="thumb"><img src="http://placehold.it/600x300" alt=""></div>
+        <div class="desc">
+          <h3>特点</h3>
+          <p>详细</p>
+        </div>
+      </li>
+      <li>
+        <div class="thumb"><img src="http://placehold.it/600x200" alt=""></div>
+        <div class="desc">
+          <h3>特点</h3>
+          <p>详细</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="products">
+    <div id="productSlides" class="swiper-container">
+      <h4>产品</h4>
+      <ul class="swiper-wrapper">
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+        <li class="swiper-slide"><img src="http://placehold.it/150x150" alt=""></li>
+      </ul>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  <section id="links">
+    <h4>链接</h4>
+    <ul>
+      <li>
+        <ul>
+          <li><a href="#1">Link1</a></li>
+          <li><a href="#2">Link2</a></li>
+          <li><a href="#3">Link3</a></li>
+          <li><a href="#4">Link4</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li><a href="#1">Link1</a></li>
+          <li><a href="#2">Link2</a></li>
+          <li><a href="#3">Link3</a></li>
+          <li><a href="#4">Link4</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li><a href="#1">Link1</a></li>
+          <li><a href="#2">Link2</a></li>
+          <li><a href="#3">Link3</a></li>
+          <li><a href="#4">Link4</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li><a href="#1">Link1</a></li>
+          <li><a href="#2">Link2</a></li>
+          <li><a href="#3">Link3</a></li>
+          <li><a href="#4">Link4</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <footer>
+    &copy; 2014-
+    <script>
+      document.write(new Date().getFullYear())
+    </script> songlairui 版权所有
+  </footer>
   <script src="lib/swiper.min.js"></script>
   <script src="scripts/index.js"></script>
-  
+  <script>
+    var swiperBanner = new Swiper('#siteBanner .swiper-container', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      spaceBetween: 30,
+    });
+    var swiperBanner = new Swiper('#products .swiper-container', {
+      // pagination: '.swiper-pagination',
+      // paginationClickable: true,
+      slidesPerView: 5,
+      spaceBetween: 50,
+      breakpoints: {
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

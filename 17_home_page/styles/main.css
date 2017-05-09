@@ -8,3 +8,146 @@ ul,ol,li {
   padding: 0;
   margin: 0
 }
+img{
+  max-width: 100%;
+}
+/* nav topbar */
+nav#topbar{
+  display: flex;
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 99;
+  background: silver;
+}
+nav#topbar>#logo{
+  flex:1;
+}
+nav#topbar>.nav{
+  display: flex;
+}
+nav#topbar>.nav li{
+  display: flex;
+  flex:1;
+}
+nav#topbar>.nav li a{
+  display: flex;
+  flex:1;
+  justify-content: center;
+  align-items: center;
+  padding:0 .6em;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav#topbar>.nav li a:hover{
+  color:navy;
+}
+/* siteBanner */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: column nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+#siteBanner{
+  margin-top:80px;
+}
+#siteBanner .swiper-slide{
+  min-height: 180px;
+  /*border: thin gray solid;*/
+}
+
+section#introduct{
+  padding: 2em 0;
+  display: flex;
+  justify-content: center;
+}
+section#introduct ul{
+  max-width: 900px;
+  flex:1;
+}
+section#introduct ul li{
+  display: flex;
+}
+section#introduct ul li .desc{
+  flex:1;
+  padding:2em;
+}
+section#introduct ul li:nth-child(odd)>.thumb{
+  order:1
+}
+section#introduct ul li:nth-child(odd)>.desc{
+  order:1
+}
+section#introduct ul li:nth-child(even)>.thumb{
+  order:2
+}
+section#introduct ul li:nth-child(even)>.desc{
+  order:1
+}
+
+
+/* product */
+#products{
+  background: lightgray;
+  padding:2em 0;
+}
+#productSlides{
+  max-width: 900px;
+}
+
+/* links */
+#links,#links ul, #links li, #links a{
+  display: flex;
+  flex-wrap: wrap;
+}
+#links{
+  justify-content: center;
+  padding:2em 0;
+}
+#links > h4 {
+  flex:1 0 900px;
+  max-width: 900px;
+}
+#links > ul{
+  max-width: 900px;
+  flex:1 0 900px;
+  justify-content: space-around
+}
+#links > ul > li{
+  flex:1 0 200px;
+}
+#links > ul ul{
+  flex-flow:column nowrap;
+}
+
+#links > ul ul > li{
+  line-height: 2em;
+}
+
+/* footer */
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:1em;
+  background: silver
+}

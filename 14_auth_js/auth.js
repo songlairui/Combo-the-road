@@ -4,11 +4,11 @@ var page = require('webpage').create(),
     pageurl,
     authedurl = 'http://172.16.255.3/smp/commonauth'
 
-var accraw = `SY01887 NRtve6ej
+var accraw0 = `SY01887 NRtve6ej
 SY01841 LrBCebWf
 SY01636 dk4U6aer
 SY01555 DVnkNeNG
-// SY01486 QHkMevtW
+SY01486 QHkMevtW
 SY01424 v6BEpaqc
 SY00681 7LNN6YDr
 SY00066 LHfXCanN
@@ -29,7 +29,8 @@ SY00603 ngJd3bG3
 SY00483 yLEwRHXS
 SY00325 gKcSNYnH
 SY00084 sk2AmWEP`
-var accraw1 = `SY01992 CDXKkqLp
+var accraw = `SY01498 VTqbsCTy
+SY01992 CDXKkqLp
 SY01971 QDA3J43S
 SY01942 Ghb6FQet
 SY01922 YfpH78xK
@@ -132,12 +133,13 @@ var step2 = function (i){
     setTimeout(function() {
         console.log("");
         console.log("### STEP 2 i: fill the form");
+        console.info(accpool[i][0],accpool[i][1])
         page.evaluate(function(usr,pwd) {
         	$('userId').value=usr
         	$('password').value=pwd
         	login()
         },accpool[i][0],accpool[i][1]);
-    }, 1200);
+    }, 1000);
 
     setTimeout(function() {
         console.log("");
@@ -150,14 +152,15 @@ var step2 = function (i){
         });
         console.log(result)
         if(result === 'success'){
-          phantom.exit()
+          return
         } else if(result === 'failure'){
             step2(i + 1)
         } else {
             console.log(result)
-            phantom.exit()
+            return
+            // phantom.exit()
         }
-    }, 1600);
+    }, 1200);
 
 }
 
