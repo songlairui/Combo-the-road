@@ -2,9 +2,23 @@
 * {
   box-sizing: border-box
 }
+/* 预览图
+body::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4225px;
+  min-height: 100%;
+  top:0;
+  left:0;
+  opacity: .3;
+  z-index:-1;
+  background: url(file:///C:/Users/lrsong/Desktop/%E5%88%87%E5%9B%BE/real-pixels.png) no-repeat center
+}*/
 html,
 body,
-h1,h3,h5,h6,
+h1,h2,h3,h4,h5,h6,
 ul,ol,li {
   padding: 0;
   margin: 0;
@@ -20,12 +34,16 @@ a:hover,a:visited,a{
   color: #333;
 }
 a:hover{
-  font-weight: 700;
+  /*font-weight: 700;*/
   color:#345;
 }
 a.button{
-  border:medium silver solid;
-  padding:.3em 1em;
+  font-size: .8em;
+  font-weight: 700;
+  letter-spacing: .15em;
+  border:2px silver solid;
+  border-radius: 1px;
+  padding:9px 14px;
 }
 /* common */
 body{
@@ -47,8 +65,9 @@ section,nav,footer,header{
 header{
   flex-flow:column nowrap;
 }
-section h2, section h3, section h4{
+header h2,section h2, section h3, section h4, footer h4{
   text-transform: uppercase;
+  letter-spacing: .1em;
 }
 section>*{
   flex:1 100%;
@@ -56,14 +75,17 @@ section>*{
 header{
   background: url(file:///C:/Users/lrsong/Desktop/%E5%88%87%E5%9B%BE/banner1.png) no-repeat center;
   min-height: 500px;
+  height: 899px;
 }
 section#banner2{
   background: url(file:///C:/Users/lrsong/Desktop/%E5%88%87%E5%9B%BE/banner2.png) no-repeat center;
-  min-height: 400px
+  min-height: 400px;
+  height: 936px;
 }
 section#banner3{
   background: url(file:///C:/Users/lrsong/Desktop/%E5%88%87%E5%9B%BE/banner3.png) no-repeat center;
   min-height: 450px;
+  height: 871px;
 }
 
 nav{
@@ -77,6 +99,7 @@ nav,nav ul.nav,nav ul.nav>li{
   display: flex;
   flex-flow:row nowrap;
 }
+nav ul.nav>li{margin:0 .4em}
 nav.appear{
   background: #fff;
 }
@@ -93,26 +116,36 @@ section#menu>ul>li,section#ee>ul>li,footer>ul>li{
   flex:1;
   max-width: 360px;
   min-width: 240px;
-  padding:0 2em;
+  margin:0 .5em;
   display: block;
   text-align: center;
-
-}
-footer>ul>li{
-  text-align: left;
 }
 /* menu */
 section#menu > h2{
   text-align: center;
+  line-height: 3em;
 }
-
+section#menu > ul {
+  transform: translateX(-10px);
+  max-width: 1172px;
+  justify-content: space-around;
+}
+section#menu > ul > li > img{
+  margin:23px 0 15px;
+}
+section#menu > ul > li > h3{
+  line-height: 2em;
+  font-size: .8em;
+  color: gray;
+}
 section{
-  padding:3em 0;
+  padding:48px 0 40px;
 }
 
 /* 灰色部分 */
 section#ee,footer{
   background: #333;
+  /*background: rgba(0,0,0,.3);*/
   color:#ccc;
 }
 
@@ -123,9 +156,82 @@ section#ee a.button,footer a.button{
   color:#ccc;
 }
 
+
+
+/* section#ee */
+section#ee{
+  /*justify-content: center;*/
+  padding:40px 0 80px;
+}
+section#ee>ul{
+  max-width: 1080px;
+  transform: translateX(-12px)
+}
+
+section#ee>ul > li > h4{
+  font-size: 18px;
+  line-height: 3em;
+}
+
+section#ee>ul > li > img{
+  margin-top:18px;
+}
+section#ee>ul > li > p{
+  font-size: 13px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: .1em;
+  line-height: 21px;
+  padding-bottom: 22px
+}
+
 /* footer */
+footer{
+  padding:58px 0 0;
+}
+footer>ul{
+  max-width: 1035px;
+}
+footer>ul>li{
+  text-align: left;
+}
+footer>ul>li:nth-child(3){
+  flex: 1.2
+}
+footer>ul>li address{
+  font-style: normal;
+  line-height: 1.8em;
+}
+footer>ul>li address:nth-child(2){
+  margin-top: 1em;
+}
+footer>ul>li input{
+  display: block;
+  font-size: 20px;
+  height: 40px;
+  margin: 17px 0 35px;
+  border: none;
+  border-radius: 2px;
+  width: 80%;
+  padding:0 .7em;
+  color: #555;
+}
+
+footer>ul>li input~a{
+  letter-spacing: 0;
+}
+
 footer>div.footnav{
   flex:1 0 100%;
   justify-content: center;
-  line-height: 3em;
+  font-size:12px;
+  padding:35px 0;
+  display: flex;
+  justify-content: center;
+  letter-spacing: .12em;
+  transform: translateX(-35px);
+}
+
+footer>div.footnav a{
+  display: block;
+  margin: 0 20px;
 }
