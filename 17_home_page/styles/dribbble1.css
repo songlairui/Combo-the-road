@@ -1,0 +1,131 @@
+/* reset */
+* {
+  box-sizing: border-box
+}
+html,
+body,
+h1,h3,h5,h6,
+ul,ol,li {
+  padding: 0;
+  margin: 0;
+}
+ul,ol,li {
+  list-style: none;
+}
+img{
+  max-width: 100%;
+}
+a:hover,a:visited,a{
+  text-decoration: none;
+  color: #333;
+}
+a:hover{
+  font-weight: 700;
+  color:#345;
+}
+a.button{
+  border:medium silver solid;
+  padding:.3em 1em;
+}
+/* common */
+body{
+  display: flex;
+  flex-flow:row wrap;
+  justify-content: center;
+  align-items: center;
+}
+section,div,nav,footer,header{
+  display: flex;
+  flex:1;
+  flex-flow:row wrap;
+}
+section,nav,footer,header{
+  flex:1 100%;
+  justify-content: center;
+  align-items: center;
+}
+header{
+  flex-flow:column nowrap;
+}
+section h2, section h3, section h4{
+
+}
+section>*{
+  flex:1 100%;
+}
+header{
+  background: url(file:///C:/Users/lrsong/Desktop/%E5%88%87%E5%9B%BE/banner1.png) no-repeat center;
+  min-height: 500px;
+}
+section#banner2{
+  background: url(file:///C:/Users/lrsong/Desktop/%E5%88%87%E5%9B%BE/banner2.png) no-repeat center;
+  min-height: 400px
+}
+section#banner3{
+  background: url(file:///C:/Users/lrsong/Desktop/%E5%88%87%E5%9B%BE/banner3.png) no-repeat center;
+  min-height: 450px;
+}
+
+nav{
+  position: fixed; top:0;width: 100%;
+  left:0;
+  height: 60px;
+  background: rgba(255,255,255,0);
+  transition:all 1s
+}
+nav,nav ul.nav,nav ul.nav>li{
+  display: flex;
+  flex-flow:row nowrap;
+}
+nav.appear{
+  background: #fff;
+}
+/* 布局 */
+section#menu>ul,section#ee>ul,footer>ul{
+  display: flex;
+  flex: 1 100%;
+  flex-flow: wrap;
+  max-width: 1258px;
+  justify-content: space-around;
+  padding:2em 0;
+}
+section#menu>ul>li,section#ee>ul>li,footer>ul>li{
+  flex:1;
+  max-width: 360px;
+  min-width: 240px;
+  padding:0 2em;
+  display: block;
+  text-align: center;
+
+}
+footer>ul>li{
+  text-align: left;
+}
+/* menu */
+section#menu > h2{
+  text-align: center;
+}
+
+section{
+  padding:3em 0;
+}
+
+/* 灰色部分 */
+section#ee,footer{
+  background: #333;
+  color:#ccc;
+}
+
+section#ee a,footer a{
+  color:#ccc;
+}
+section#ee a.button,footer a.button{
+  color:#ccc;
+}
+
+/* footer */
+footer>div.footnav{
+  flex:1 0 100%;
+  justify-content: center;
+  line-height: 3em;
+}
