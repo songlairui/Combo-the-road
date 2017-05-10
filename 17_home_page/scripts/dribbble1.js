@@ -17,6 +17,7 @@ function slideMe(direction) {
   direction = typeof direction === 'undefined' ? fasle : direction
   let dest = 0
   dest = direction ? params.boundary[tmpvp[1]][0] - window.scrollY : params.boundary[tmpvp[0]][1] - window.innerHeight - window.scrollY
+  setAppear(tmpvp[direction ? 1 : 0])
   Jump(dest, {
     callback: () => {
       params.animating = false
@@ -57,7 +58,7 @@ function initPage() {
  * 直接操作全局变量，没有返回值
  * 写成方法，等待使用节流函数
  */
-function snapViewStatus ()  {
+function snapViewStatus() {
   let tmp = [window.scrollY + window.innerHeight * .2, window.scrollY + window.innerHeight * .8]
   // console.info(tmp)
   tmpvp = tmp.map(v0 =>
@@ -66,4 +67,20 @@ function snapViewStatus ()  {
     )
   )
   // console.info(tmpvp)
+}
+/**
+ * @param  {Array|Number} idxArr - 设置对应idx的section为appear状态
+ */
+function setAppear(idxArr) {
+  // new Set() 去重，如果需要
+  if(typeof +idxArr === 'number'){
+    idxArr = [ +idxArr ]
+  }
+  params.doms.map((dom, idx) => {
+    if (idxArr.indexOf(idx) !== -1) {
+      dom.classList.add('appear')
+    } else {
+      dom.classList.remove('appear')
+    }
+  })
 }
