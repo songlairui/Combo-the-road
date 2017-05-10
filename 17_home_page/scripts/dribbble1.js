@@ -1,6 +1,7 @@
 document.body.addEventListener('wheel', function (e) {
   // console.info(e)
   // e.preventDefault()
+  console.info(tmpvp)
   tmpvp[0] === tmpvp[1] ? null : (e.preventDefault(), slideMe(e.deltaY > 0))
   //  goNext(e) : goPrev(e)
 })
@@ -15,10 +16,14 @@ function slideMe(direction) {
   params.animating = true
 
   direction = typeof direction === 'undefined' ? fasle : direction
+  // tmpvp[1] === '-1' 说明滚到最后了。不需要继续向下滚了。
+  if (direction && tmpvp[1] === '-1') return null
   let dest = 0
   dest = direction ? params.boundary[tmpvp[1]][0] - window.scrollY : params.boundary[tmpvp[0]][1] - window.innerHeight - window.scrollY
   setAppear(tmpvp[direction ? 1 : 0])
+  // console.info(`dest`, dest)
   Jump(dest, {
+    duration: 600,
     callback: () => {
       params.animating = false
     }
@@ -29,7 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
   console.info('DOMContentLoaded')
   window.params = initPage()
   window.tmpvp = [-1, -1]
-  document.addEventListener('scroll', snapViewStatus)
+  window.addEventListener('scroll', snapViewStatus)
+  window.addEventListener('resize', function () {
+    window.params.boundary = snapBoundary(params)
+  })
 })
 
 /**
@@ -48,10 +56,19 @@ function initPage() {
   params.doms.push(document.querySelector('header'))
   params.doms.push(...document.querySelectorAll('section'))
   params.doms.push(document.querySelector('footer'))
-  params.boundary = params.doms.map(function (el) {
+  params.boundary = snapBoundary(params)
+  return params
+}
+/**
+ * 设置params的boundary属性
+ * 初始化的时候，window.resize的时候
+ * @param  {} obj - 传入一个对象
+ * @return [] - 返回一个数组
+ */
+function snapBoundary(obj) {
+  return obj.doms.map(function (el) {
     return [el.offsetTop, el.offsetTop + el.clientHeight]
   })
-  return params
 }
 /**
  * 抓取当前viewPort状态
@@ -63,7 +80,7 @@ function snapViewStatus() {
   // console.info(tmp)
   tmpvp = tmp.map(v0 =>
     params.boundary.findIndex(v1 =>
-      v0 >= v1[0] && v0 <= v1[1]
+      v0 >= v1[0] && v0 < v1[1]
     )
   )
   // console.info(tmpvp)
@@ -73,8 +90,8 @@ function snapViewStatus() {
  */
 function setAppear(idxArr) {
   // new Set() 去重，如果需要
-  if(typeof +idxArr === 'number'){
-    idxArr = [ +idxArr ]
+  if (typeof +idxArr === 'number') {
+    idxArr = [+idxArr]
   }
   params.doms.map((dom, idx) => {
     if (idxArr.indexOf(idx) !== -1) {

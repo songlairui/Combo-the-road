@@ -73,19 +73,19 @@ section>*{
   flex:1 100%;
 }
 header{
-  background: url(https://ooo.0o0.ooo/2017/05/10/5912f5b251492.png) no-repeat center;
+  background-image: url(https://ooo.0o0.ooo/2017/05/10/5912f5b251492.png);
   min-height: 500px;
-  height: 899px;
+  /*height: 899px;*/
 }
 section#banner2{
-  background: url(https://ooo.0o0.ooo/2017/05/10/5912f5b2d3303.png) no-repeat center;
+  background-image: url(https://ooo.0o0.ooo/2017/05/10/5912f5b2d3303.png);
   min-height: 400px;
-  height: 936px;
+  /*height: 936px;*/
 }
 section#banner3{
-  background: url(https://ooo.0o0.ooo/2017/05/10/5912f5b24dff8.png) no-repeat center;
+  background-image: url(https://ooo.0o0.ooo/2017/05/10/5912f5b24dff8.png);
   min-height: 450px;
-  height: 871px;
+  /*height: 871px;*/
 }
 
 nav{
@@ -93,7 +93,8 @@ nav{
   left:0;
   height: 60px;
   background: rgba(255,255,255,0);
-  transition:all 1s
+  transition:all 1s;
+  z-index: 99;
 }
 nav,nav ul.nav,nav ul.nav>li{
   display: flex;
@@ -237,3 +238,68 @@ footer>div.footnav a{
 }
 
 /* 增加 appear 动画 */
+
+header,section#banner1,section[id^='banner']{
+  position:relative;
+  transition:all .4s,background-position-y 1s ;
+  height:700px;
+  background-repeat: no-repeat ;
+  background-position-x:center;
+  background-position-y: -160px;
+}
+
+header::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background: rgba(0,0,0,.6);
+  transition: all .5s;
+}
+header.appear::before{
+  background: rgba(0,0,0,0);
+}
+
+
+header.appear,section[id^='banner'][class='appear']{
+  background-position-y: 0;
+}
+
+section#ee > ul > li, section#menu > ul > li{
+  opacity: .5;
+  transform:translateY(20px);
+}
+
+section#ee.appear > ul > li:nth-child(1){
+  animation: eeImg .3s ease 0.6s 1 normal forwards;
+}
+section#ee.appear > ul > li:nth-child(2){
+  animation: eeImg .3s ease 0.7s 1 normal forwards;
+}
+section#ee.appear > ul > li:nth-child(3){
+  animation: eeImg .3s ease 0.8s 1 normal forwards;
+}
+
+
+section#menu.appear > ul > li:nth-child(1){
+  animation: eeImg .3s ease 0.6s 1 normal forwards;
+}
+section#menu.appear > ul > li:nth-child(2){
+  animation: eeImg .3s ease 0.7s 1 normal forwards;
+}
+section#menu.appear > ul > li:nth-child(3){
+  animation: eeImg .3s ease 0.8s 1 normal forwards;
+}
+section#menu.appear > ul > li:nth-child(4){
+  animation: eeImg .3s ease 0.9s 1 normal forwards;
+}
+
+@keyframes eeImg{
+  from{
+    opacity: .5;
+    transform:translateY(20px)
+  }
+  to{
+    opacity: 1;
+    transform:translateY(0px)
+  }
+}
