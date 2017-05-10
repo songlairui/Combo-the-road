@@ -48,7 +48,7 @@ header{
   flex-flow:column nowrap;
 }
 section h2, section h3, section h4{
-
+  text-transform: uppercase;
 }
 section>*{
   flex:1 100%;
