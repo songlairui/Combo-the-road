@@ -74,7 +74,10 @@ nav#topbar>.nav li a:hover{
   min-height: 180px;
   /*border: thin gray solid;*/
 }
-
+#siteBanner p{
+  max-width:640px;
+  line-height:1.8em;
+}
 section#introduct{
   padding: 2em 0;
   display: flex;

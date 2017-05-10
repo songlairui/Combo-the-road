@@ -59,7 +59,7 @@ function initPage() {
  * 写成方法，等待使用节流函数
  */
 function snapViewStatus() {
-  let tmp = [window.scrollY + window.innerHeight * .2, window.scrollY + window.innerHeight * .8]
+  let tmp = [window.scrollY + window.innerHeight * .1, window.scrollY + window.innerHeight * .9]
   // console.info(tmp)
   tmpvp = tmp.map(v0 =>
     params.boundary.findIndex(v1 =>
