@@ -94,6 +94,9 @@ section#introduct ul li .desc{
   flex:1;
   padding:2em;
 }
+section#introduct ul li>.thumb{
+  max-width:60%;
+}
 section#introduct ul li:nth-child(odd)>.thumb{
   order:1
 }
