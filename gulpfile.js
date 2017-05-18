@@ -3,7 +3,7 @@ var browserSync = require('browser-sync')
 var reload = browserSync.reload
 
 // 正在工作的目录
-var working_target = '17_home_page'
+var working_target = '18_js_canvas'
 
 gulp.task('serve', function(){
   browserSync({

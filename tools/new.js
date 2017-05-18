@@ -31,6 +31,7 @@ fs.readdir(process.cwd(), function (error, files) {
   // console.log(dirpool)
   let target_id = dirpool.last + 1
   let target_name = target_id + '_' + foldername
+  console.info(target_name)
   copyDir('./0_template', './' + target_name)
 })
 // linux 平台
