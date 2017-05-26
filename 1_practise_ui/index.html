@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>BrowserSync</title>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
-
 </head>
 
 <body>
@@ -36,17 +36,19 @@
       <div class="block video">
         <div class="v">
           <video>
-            <source src="livereload.m4v"> 浏览器不支持video标签
+            <source src=""> 浏览器不支持video标签
           </video>
           <div class="control-panel">
-            <div class="act" data-status='pause'></div>
+            <div class='act_bg'>
+              <div class="act" data-status='pause'></div>
+            </div>
             <div class="cover"></div>
             <div class="progress">
               <div class="posidot"></div>
               <div class="loaded"></div>
               <div class="pool"></div>
             </div>
-            <div class="mute"></div>
+            <div class="mute"><i class='fa fa-volumn-off'></i></div>
           </div>
         </div>
       </div>
@@ -136,44 +138,49 @@
           </div>
         </div>
         <ul class="tab-task">
-          <li class='active'><span>CHART</span></li>
-          <li><span>TASKS</span></li>
-          <li><span>EVENTS</span></li>
+          <li class='active'>
+            <span>
+            <i class="fa fa-pie-chart"></i></span>
+            <span>CHART</span></li>
+          <li>
+            <span><i class="fa fa-tasks"></i></span><span>TASKS</span></li>
+          <li>
+            <span><i class="fa fa-map-marker"></i></span><span>EVENTS</span></li>
         </ul>
       </div>
       <div class="block mailbox">
         <h3 class="title">Mailbox</h3>
         <ul class="mail-list">
           <li class="mail-catalog selected">
-            <i class="icon">❊</i>
+            <span><i class="fa fa-inbox"></i></span>
             <span class="title">Inbox</span>
             <div class="badge">
               <span class="badge-num">3</span>
             </div>
           </li>
           <li class="mail-catalog">
-            <i class="icon">❊</i>
+            <span><i class="fa fa-star"></i></span>
             <span class="title">Starred</span>
             <div class="badge">
               <span class="badge-num">7</span>
             </div>
           </li>
           <li class="mail-catalog">
-            <i class="icon">❊</i>
+            <span><i class="fa fa-flag"></i></span>
             <span class="title">Flagged</span>
             <div class="badge">
               <span class="badge-num">13</span>
             </div>
           </li>
           <li class="mail-catalog">
-            <i class="icon">❊</i>
+            <span><i class="fa fa-paper-plane"></i></span>
             <span class="title">Sent</span>
             <div class="badge">
               <span class="badge-num">284</span>
             </div>
           </li>
           <li class="mail-catalog">
-            <i class="icon">❊</i>
+            <span><i class="fa fa-trash"></i></span>
             <span class="title">Deleted</span>
             <div class="badge">
               <span class="badge-num">6</span>
@@ -188,8 +195,8 @@
     <div class="col">
       <div class="block login">
         <div class="form">
-          <div class="input"><i class="icon">user</i><input type="text" placeholder="Username"></div>
-          <div class="input"><i class="icon">pwd</i><input type="password" placeholder="Password"></div>
+          <div class="input"><span><i class="fa fa-user fa-fw"></i></span><input type="text" placeholder="Username"></div>
+          <div class="input"><span><i class="fa fa-key fa-fw"></i></span><input type="password" placeholder="Password"></div>
           <div class="submit">
             <button class="btn btn-large btn-log-in">log in</button>
           </div>
@@ -198,7 +205,9 @@
       <div class="block profile">
         <div class="figure-area">
           <div class="figure">
-            <div class="img"></div>
+            <div class="img">
+              <img src="./img/figure1.jpeg">
+            </div>
           </div>
           <div class="info">
             <h3 class="name">Larry Song</h3>
@@ -206,19 +215,26 @@
           </div>
         </div>
         <ul class="profile-meta">
-          <li class="like"><i class="icon">❊</i><span class="num">1231</span></li>
-          <li class="friends"><i class="icon">❊</i><span class="num">7231</span></li>
-          <li class="focus"><i class="icon">❊</i><span class="num">21231</span></li>
+          <li class="like"><span>
+            <i class="fa fa-heart"></i></span>
+            <span class="num">1231</span></li>
+          <li class="friends"><span>
+            <i class="fa fa-users"></i></span>
+            <span class="num">7231</span></li>
+          <li class="focus"><span>
+            <i class="fa fa-eye"></i></span>
+            <span class="num">21231</span></li>
         </ul>
       </div>
       <div class="block calendar">
-        <h3 class="title">March,26 2017</h3>
+        <h3 class="title">
+          <span><i class="fa fa-calendar-plus-o"></i></span>March,26 2017</h3>
         <ul class="eventlist">
           <li class="eventitem">
-            <i class="icon">❊</i>
+            <span><i class="fa fa-map-marker"></i></span>
             <div class="item">WINTER FEEL</div>
-            <div class="act1">EDIT</div>
-            <div class="act2">COMMENT</div>
+            <div class="act1"><i class="fa fa-pencil-square-o"></i></div>
+            <div class="act2"><i class="fa fa-commenting"></i></div>
           </li>
         </ul>
         <div class="submit">
