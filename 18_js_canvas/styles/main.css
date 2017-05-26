@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+}
+html,
+body,
+h1,h3,h5,h6,
+ul,ol,li {
+  padding: 0;
+  margin: 0
+}
+
+html,body,main{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+html,main{
+  flex-flow: column;
+  min-height: 100%;
+}
+
+canvas{
+  min-height: 360px;
+  min-width: 480px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px -1px #000;
+}
