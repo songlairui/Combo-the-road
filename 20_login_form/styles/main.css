@@ -37,6 +37,7 @@ html {
 
 body {
   font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 main {
@@ -56,15 +57,36 @@ main>nav>ul>li {
 
 main>nav {
   flex: 1 0 100%;
+  transform: translate3d(-30px, 0, 0);
+  transition: transform .4s;
+}
+
+main[data-active='signin']>nav {
+  transform: translate3d(-30px, 0, 0);
+}
+
+main[data-active='signup']>nav {
+  transform: translate3d(30px, 0, 0);
 }
 
 main>nav>ul {
-  flex: 1;
+  flex: 0 0 320px;
 }
 
 main>nav>ul>li {
   flex: 1;
   cursor: pointer;
+  color: #aaa;
+  transition: color 1s, font-size .2s;
+  background: rgba(255, 255, 255, 0.03);
+  margin: 1rem;
+  min-height: 3rem;
+}
+
+main[data-active='signin']>nav li[data-target='signin'],
+main[data-active='signup']>nav li[data-target='signup'] {
+  color: #fff;
+  font-size: 1.2rem;
 }
 
 main>[class^='sign'] {
@@ -108,35 +130,35 @@ main[data-active='signin-end']>div.signup {
 }
 
 main[data-active='signin']>div.signin {
-  animation: pushBehind .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
+  animation: pushBehind .4s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
 }
 
 main[data-active='signin']>div.signin>.board {
-  animation: toLeft .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
+  animation: toLeft .4s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
 }
 
 main[data-active='signin']>div.signup {
-  animation: pushBehind .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
+  animation: pushBehind .4s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
 }
 
 main[data-active='signin']>div.signup>.board {
-  animation: toRight .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
+  animation: toRight .4s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
 }
 
 main[data-active='signup']>div.signin {
-  animation: pushBehind .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
+  animation: pushBehind .4s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
 }
 
 main[data-active='signup']>div.signin>.board {
-  animation: toLeft .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
+  animation: toLeft .4s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
 }
 
 main[data-active='signup']>div.signup {
-  animation: pushBehind .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
+  animation: pushBehind .4s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
 }
 
 main[data-active='signup']>div.signup>.board {
-  animation: toRight .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
+  animation: toRight .4s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
 }
 
 @keyframes pushBehind {
@@ -151,19 +173,19 @@ main[data-active='signup']>div.signup>.board {
 @keyframes toLeft {
   from,
   to {
-    transform: translate3d(50px, 0px, 0px)
+    transform: translate3d(50px, 0px, 0px) scaleX(1)
   }
   50% {
-    transform: translate3d(-10px, 0px, 0px)
+    transform: translate3d(0px, 0px, 0px) scaleX(1.1)
   }
 }
 
 @keyframes toRight {
   from,
   to {
-    transform: translate3d(-50px, 0px, 0px)
+    transform: translate3d(-50px, 0px, 0px) scaleX(1)
   }
   50% {
-    transform: translate3d(10px, 0px, 0px)
+    transform: translate3d(0px, 0px, 0px) scaleX(1.1)
   }
 }
