@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h3,
+h5,
+h6,
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+html,
+body,
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  background: #3B4465;
+  color: #eee;
+  min-height: 100%;
+  flex-flow: column;
+}
+
+body {
+  font-size: 16px;
+}
+
+main {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  flex-wrap: wrap;
+}
+
+main>nav,
+main>nav>ul,
+main>nav>ul>li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ;
+}
+
+main>nav {
+  flex: 1 0 100%;
+}
+
+main>nav>ul {
+  flex: 1;
+}
+
+main>nav>ul>li {
+  flex: 1;
+  cursor: pointer;
+}
+
+main>[class^='sign'] {
+  flex: 1;
+  height: 60%;
+  min-height: 400px;
+  /*background: hsla(0, 0%, 100%, .3);*/
+}
+
+main>[class^='sign']>.board {
+  min-width: 240px;
+  min-height: 360px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, .5);
+  border-radius: .5rem;
+  margin: 1rem;
+}
+
+main>.signin {
+  transform: translate3d(50px, 50px, 50px);
+}
+
+main>div.signup {
+  transform: translate3d(-50px, 50px, -250px);
+}
+
+main[data-active='signup-end']>.signin {
+  transform: translate3d(50px, 50px, 50px);
+}
+
+main[data-active='signup-end']>div.signup {
+  transform: translate3d(-50px, 50px, -250px);
+}
+
+main[data-active='signin-end']>.signin {
+  transform: translate3d(50px, 50px, -250px);
+}
+
+main[data-active='signin-end']>div.signup {
+  transform: translate3d(-50px, 50px, 50px);
+}
+
+main[data-active='signin']>div.signin {
+  animation: pushBehind .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
+}
+
+main[data-active='signin']>div.signin>.board {
+  animation: toLeft .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
+}
+
+main[data-active='signin']>div.signup {
+  animation: pushBehind .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
+}
+
+main[data-active='signin']>div.signup>.board {
+  animation: toRight .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
+}
+
+main[data-active='signup']>div.signin {
+  animation: pushBehind .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
+}
+
+main[data-active='signup']>div.signin>.board {
+  animation: toLeft .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
+}
+
+main[data-active='signup']>div.signup {
+  animation: pushBehind .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 reverse forwards;
+}
+
+main[data-active='signup']>div.signup>.board {
+  animation: toRight .6s cubic-bezier(0.36, 0, 0.64, 1) 0s 1 normal forwards;
+}
+
+@keyframes pushBehind {
+  from {
+    transform: translate3d(0px, 50px, 50px)
+  }
+  to {
+    transform: translate3d(-0px, 50px, -250px)
+  }
+}
+
+@keyframes toLeft {
+  from,
+  to {
+    transform: translate3d(50px, 0px, 0px)
+  }
+  50% {
+    transform: translate3d(-10px, 0px, 0px)
+  }
+}
+
+@keyframes toRight {
+  from,
+  to {
+    transform: translate3d(-50px, 0px, 0px)
+  }
+  50% {
+    transform: translate3d(10px, 0px, 0px)
+  }
+}
