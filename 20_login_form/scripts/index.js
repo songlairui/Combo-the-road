@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // 如果不相等，说明点了后边的页面，那么把页面提上来。
           switchMain(targetActive, main)
           e.preventDefault()
+          e.stopPropagation()
         }
         // 在这儿捕获了行为，后边的不执行了
         return
