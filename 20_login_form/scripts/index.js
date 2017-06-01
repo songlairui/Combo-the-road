@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
           return
         }
         switchMain(e.target.dataset.target, main)
+          // 在这儿捕获了行为，后边的不执行了
+        return
       }
       // 如果登录或注册面板被点击，则切换其到焦点状态
       let clickedBoard = searchEl('[class^="sign"]', e)
@@ -23,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
           switchMain(targetActive, main)
           e.preventDefault()
         }
+        // 在这儿捕获了行为，后边的不执行了
+        return
       }
 
     })

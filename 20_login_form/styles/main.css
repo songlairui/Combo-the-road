@@ -91,7 +91,7 @@ main[data-active='signup']>nav li[data-target='signup'] {
 }
 
 main>.boards {
-  transform: translateZ(-300px);
+  transform: translateZ(-200px);
   transform-style: preserve-3d;
 }
 
@@ -193,13 +193,15 @@ main[data-active='signup']>.boards>.signup>.board {
 }
 
 .form {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1);
   box-shadow: 0 2px 10px -3px rgba(0, 0, 0, .5);
   border-radius: .1rem;
   margin: 1rem;
   padding: 1rem;
   display: flex;
   flex-flow: column;
+  position: relative;
+  transition: background 1s;
 }
 
 .form input,
@@ -222,6 +224,42 @@ main[data-active='signup']>.boards>.signup>.board {
   text-transform: uppercase;
   color: navy;
   border: none;
-  background: skyblue;
+  background: #333;
+  color: #ded;
   border-radius: .3rem;
+}
+
+
+/* 隐藏后边的表单 */
+
+main>.boards [class^='sign'] .form>* {
+  opacity: 1;
+  transition: opacity 1s
+}
+
+main>.boards [class^='sign'] .form::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .0);
+  cursor: pointer;
+  display: none;
+}
+
+main[data-active='signup']>.boards .signin .form,
+main[data-active='signin']>.boards .signup .form {
+  background: rgba(235, 255, 235, .9)
+}
+
+main[data-active='signup']>.boards .signin .form::after,
+main[data-active='signin']>.boards .signup .form::after {
+  display: block;
+}
+
+main[data-active='signup']>.boards .signin .form>*,
+main[data-active='signin']>.boards .signup .form>* {
+  opacity: 0;
 }
