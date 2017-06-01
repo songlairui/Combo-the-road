@@ -114,7 +114,9 @@ main>.boards>.signin {
 main>.boards>.signup {
   transform: translate3d(-50px, 50px, 50px);
 }
-
+main[data-active$='-end']>.boards>[class^='sign']{
+  transition: none;
+}
 main[data-active='signup-end']>.boards>.signin {
   transform: translate3d(50px, 50px, 350px);
 }
@@ -201,7 +203,7 @@ main[data-active='signup']>.boards>.signup>.board {
   display: flex;
   flex-flow: column;
   position: relative;
-  transition: background 1s;
+  transition: background .6s;
 }
 
 .form input,
@@ -234,7 +236,7 @@ main[data-active='signup']>.boards>.signup>.board {
 
 main>.boards [class^='sign'] .form>* {
   opacity: 1;
-  transition: opacity 1s
+  transition: opacity .6s
 }
 
 main>.boards [class^='sign'] .form::after {
