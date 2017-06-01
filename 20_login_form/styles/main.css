@@ -58,20 +58,25 @@ main>nav>ul>li {
 
 main>nav {
   flex: 1 0 100%;
+  flex-flow: column;
+}
+main > nav >ul{
   transform: translate3d(-30px, 0, 0);
   transition: transform .4s;
 }
-
-main[data-active='signin']>nav {
+main[data-active='signin']>nav>ul {
   transform: translate3d(-30px, 0, 0);
 }
 
-main[data-active='signup']>nav {
+main[data-active='signup']>nav>ul {
   transform: translate3d(30px, 0, 0);
 }
 
-main>nav>ul {
-  flex: 0 0 320px;
+main>nav>ul,
+main>nav>.underline {
+  flex: 0 0;
+  width: 100%;
+  max-width: 320px;
 }
 
 main>nav>ul>li {
@@ -79,7 +84,7 @@ main>nav>ul>li {
   cursor: pointer;
   color: #aaa;
   transition: color 1s, font-size .2s;
-  background: rgba(255, 255, 255, 0.03);
+  /*background: rgba(255, 255, 255, 0.03);*/
   margin: 1rem;
   min-height: 3rem;
 }
@@ -90,6 +95,47 @@ main[data-active='signup']>nav li[data-target='signup'] {
   font-size: 1.2rem;
 }
 
+
+main>nav>.underline{
+  flex: 0 0 4px;
+  /*background: rgba(255,255,255,.7);*/
+  position: relative;
+  opacity: .7
+}
+main>nav>.underline::before,
+main>nav>.underline::after{
+  content:'';
+  position: absolute;
+  top:0;bottom: 0;
+  transition: transform .6s;
+  background: #fff;
+}
+
+main>nav>.underline::before{
+  width: 20%;
+  left: 0%;
+  /*background: red;*/
+}
+main>nav>.underline::after{
+  width: 10%;
+  left: 20%;
+  /*background: yellow;*/
+}
+
+main[data-active='signin']>nav>.underline::before{
+  transform: translateX(0%);
+}
+main[data-active='signin']>nav>.underline::after{
+  transform: translateX(0%);
+}
+main[data-active='signup']>nav>.underline::before{
+  transform: translateX(400%);
+}
+main[data-active='signup']>nav>.underline::after{
+  transform: translateX(500%);
+}
+
+/* 表单动画 */
 main>.boards {
   transform: translateZ(-200px);
   transform-style: preserve-3d;
@@ -114,6 +160,7 @@ main>.boards>.signin {
 main>.boards>.signup {
   transform: translate3d(-50px, 50px, 50px);
 }
+
 main[data-active$='-end']>.boards>[class^='sign']{
   transition: none;
 }
