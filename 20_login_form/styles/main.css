@@ -40,7 +40,8 @@ body {
   font-size: 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-footer{
+
+footer {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -50,11 +51,13 @@ footer{
   min-height: 4rem;
   color: #aaa
 }
-footer a{
+
+footer a {
   color: #bbb
 }
+
 main {
-  flex:1;
+  flex: 1;
   perspective: 1000px;
   transform-style: preserve-3d;
   flex-wrap: wrap;
@@ -74,10 +77,12 @@ main>nav {
   flex: 1 0 100%;
   flex-flow: column;
 }
-main > nav >ul{
+
+main>nav>ul {
   transform: translate3d(-30px, 0, 0);
   transition: transform .4s;
 }
+
 main[data-active='signin']>nav>ul {
   transform: translate3d(-30px, 0, 0);
 }
@@ -109,52 +114,58 @@ main[data-active='signup']>nav li[data-target='signup'] {
   font-size: 1.2rem;
 }
 
-
-main>nav>.underline{
+main>nav>.underline {
   flex: 0 0 4px;
   /*background: rgba(255,255,255,.7);*/
   position: relative;
   opacity: .7
 }
+
 main>nav>.underline::before,
-main>nav>.underline::after{
-  content:'';
+main>nav>.underline::after {
+  content: '';
   position: absolute;
-  top:0;bottom: 0;
+  top: 0;
+  bottom: 0;
   transition: transform .6s;
   background: #fff;
 }
 
-main>nav>.underline::before{
+main>nav>.underline::before {
   width: 20%;
   left: 0%;
   /*background: red;*/
 }
-main>nav>.underline::after{
+
+main>nav>.underline::after {
   width: 10%;
   left: 20%;
   /*background: yellow;*/
 }
 
-main[data-active='signin']>nav>.underline::before{
+main[data-active='signin']>nav>.underline::before {
   transform: translateX(0%);
 }
-main[data-active='signin']>nav>.underline::after{
+
+main[data-active='signin']>nav>.underline::after {
   transform: translateX(0%);
 }
-main[data-active='signup']>nav>.underline::before{
+
+main[data-active='signup']>nav>.underline::before {
   transform: translateX(400%);
 }
-main[data-active='signup']>nav>.underline::after{
+
+main[data-active='signup']>nav>.underline::after {
   transform: translateX(500%);
 }
 
+
 /* 表单动画 */
+
 main>.boards {
   transform: translateZ(-100px);
   transform-style: preserve-3d;
 }
-
 
 main>.boards>[class^='sign'] {
   flex: 1;
@@ -176,9 +187,10 @@ main>.boards>.signup {
   transform: translate3d(-50px, 50px, 50px);
 }
 
-main[data-active$='-end']>.boards>[class^='sign']{
+main[data-active$='-end']>.boards>[class^='sign'] {
   transition: none;
 }
+
 main[data-active='signup-end']>.boards>.signin {
   transform: translate3d(50px, 50px, 350px);
 }
@@ -294,6 +306,29 @@ main[data-active='signup']>.boards>.signup>.board {
 }
 
 
+/* 信息提示 */
+
+.form .alert-tip {
+  font-size: .8rem;
+  color: #3B4465;
+  padding: .1rem .8rem;
+  display: block;
+  border-radius: .1rem;
+  transition: background .5s, color .5s;
+  text-align: center
+}
+
+.form .alert-tip.fail {
+  background: #fcc;
+  color: red
+}
+
+.form .alert-tip.pass {
+  background: #cfc;
+  color: green
+}
+
+
 /* 隐藏后边的表单 */
 
 main>.boards [class^='sign'] .form>* {
@@ -330,56 +365,48 @@ main[data-active='signin']>.boards .signup .form>* {
 
 
 /* 手机端调整 */
-@media screen and ( max-width:600px ){
+
+@media screen and ( max-width:600px) {
   main>.boards {
     transform: translateZ(-300px);
   }
-
-
-main>.boards>.signin {
-  transform: translate3d(100px, 50px, 350px);
-}
-
-main>.boards>.signup {
-  transform: translate3d(-100px, 50px, 50px);
-}
-
-main[data-active$='-end']>.boards>[class^='sign']{
-  transition: none;
-}
-main[data-active='signup-end']>.boards>.signin {
-  transform: translate3d(100px, 50px, 350px);
-}
-
-main[data-active='signup-end']>.boards>.signup {
-  transform: translate3d(-100px, 50px, 50px);
-}
-
-main[data-active='signin-end']>.boards>.signin {
-  transform: translate3d(100px, 50px, 50px);
-}
-
-main[data-active='signin-end']>.boards>.signup {
-  transform: translate3d(-100px, 50px, 350px);
-}
-
-@keyframes toLeft {
-  from,
-  to {
-    transform: translate3d(100px, 0px, 0px) scaleX(1)
+  main>.boards>.signin {
+    transform: translate3d(100px, 50px, 350px);
   }
-  50% {
-    transform: translate3d(0px, 0px, 0px) scaleX(1.1)
+  main>.boards>.signup {
+    transform: translate3d(-100px, 50px, 50px);
   }
-}
-
-@keyframes toRight {
-  from,
-  to {
-    transform: translate3d(-100px, 0px, 0px) scaleX(1)
+  main[data-active$='-end']>.boards>[class^='sign'] {
+    transition: none;
   }
-  50% {
-    transform: translate3d(0px, 0px, 0px) scaleX(1.1)
+  main[data-active='signup-end']>.boards>.signin {
+    transform: translate3d(100px, 50px, 350px);
   }
-}
+  main[data-active='signup-end']>.boards>.signup {
+    transform: translate3d(-100px, 50px, 50px);
+  }
+  main[data-active='signin-end']>.boards>.signin {
+    transform: translate3d(100px, 50px, 50px);
+  }
+  main[data-active='signin-end']>.boards>.signup {
+    transform: translate3d(-100px, 50px, 350px);
+  }
+  @keyframes toLeft {
+    from,
+    to {
+      transform: translate3d(100px, 0px, 0px) scaleX(1)
+    }
+    50% {
+      transform: translate3d(0px, 0px, 0px) scaleX(1.1)
+    }
+  }
+  @keyframes toRight {
+    from,
+    to {
+      transform: translate3d(-100px, 0px, 0px) scaleX(1)
+    }
+    50% {
+      transform: translate3d(0px, 0px, 0px) scaleX(1.1)
+    }
+  }
 }

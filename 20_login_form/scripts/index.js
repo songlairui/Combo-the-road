@@ -1,21 +1,78 @@
 let inited = false
 
 let progressingList = {
-  signin: false,
-  signup: false,
-  animating: false,
-  timer:{}
-}
-let formList = {
+    signin: false,
+    signup: false,
+    animating: false,
+    timer: {}
+  }
+  // 表单校验使用的缓存变量
+let validElList = new Map()
 
+// 表单校验使用的策略
+var strategies = {
+  isNonEmpty: function(value, errorMsg) {
+    if (value === '') {
+      return '\u00d7 ' + errorMsg;
+    }
+  },
+  minLength: function(value, length, errorMsg) {
+    if (value.length < length) {
+      return '\u00d7 ' + errorMsg;
+    }
+  },
+  isMobile: function(value, errorMsg) {
+    if (!/(^1[3|5|8][0-9]{9}$)/.test(value)) {
+      return '\u00d7 ' + errorMsg;
+    }
+  },
+  isEmail: function(value, errorMsg) {
+    if (!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(value)) {
+      return '\u00d7 ' + errorMsg;
+    }
+  },
+  default: function(value) {
+    return '\u00d7 ' + `没有找到校验规则，随便你输入什么，过得去算我输`
+  }
+};
+// 每种表单的验证
+let validDict = {
+  'username': function(value, length) {
+    length = length || 4
+    let errorMsg = `用户名长度不能小于 ${length} 位`
+    let result = strategies.minLength(value, length, errorMsg)
+    return { err: !!result, msg: result || ' \u221a' }
+  },
+  'email': function(value) {
+    let errorMsg = `邮箱格式不正确`
+    let result = strategies.isEmail(value, errorMsg)
+      // console.info('判断结果', result)
+    return { err: !!result, msg: result || ' \u221a' }
+  },
+  'passwd': function(value, length) {
+    length = length || 4
+    let errorMsg = `密码长度不能小于 ${length} 位`
+    let result = strategies.minLength(value, length, errorMsg)
+    return { err: !!result, msg: result || ' \u221a' }
+  },
+  'default': function(value) {
+    let result = strategies.default(value)
+    return { err: !!result, msg: result || ' \u221a' }
+  }
 }
+
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
 
 
   document.addEventListener('input', function(e) {
-    console.info('表单校验', e.target)
+    if (e.target.matches('input')) {
+      let inputUnit = getInstance(e.target)
+      inputUnit.check()
+    }
+    // console.info('表单校验', e.target)
   })
 
   let main = document.querySelector('main')
@@ -51,8 +108,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // 按钮 行为
       // ? TODO 未来如何优化？
+
+      // if (e.target.matches('[class*="btn-sign"]')) {
+      //   // 提交按钮，进行数据检查
+      //   if (!checkFrom(e.target)) {
+      //     toast('表单验证不通过')
+      //     return
+      //   }
+      // }
       // Sign In
       if (e.target.matches('.btn-sign-in')) {
+        // 提交按钮，进行数据检查
+        if (!checkFrom(e.target)) {
+          toast('{{ 请重新填写提交 }}', e.target.parentNode.querySelector('.alert-tip'))
+          return
+        }
+        // 阻止频繁点击
         if (progressingList.signin) {
           return console.info('正在等待登陆结果')
         }
@@ -72,8 +143,14 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         return
       }
+
       // Sign Up
       if (e.target.matches('.btn-sign-up')) {
+        // 提交按钮，进行数据检查
+        if (!checkFrom(e.target)) {
+          toast('{{ 请重新填写提交 }}', e.target.parentNode.querySelector('.alert-tip'))
+          return
+        }
         if (progressingList.signup) {
           return console.info('正在等待注册结果')
         }
@@ -116,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
  *
  */
 function switchMain(className, main) {
-  if(progressingList.animating){
+  if (progressingList.animating) {
     return console.info('切换间隔要大于100ms')
   }
   progressingList.animating = true
@@ -126,7 +203,7 @@ function switchMain(className, main) {
     main.setAttribute('data-active', className)
     progressingList.animating = false
   }, 10)
-  
+
 }
 
 /**
@@ -169,12 +246,83 @@ function init() {
   })
 }
 
-class inputUnit {
+/**
+ * 创建表单验证实例，每次验证到，如果缓存对象里没有，新建类，并置入缓存对象
+ * 类需要匹配到错误提示框
+ */
+class InputUnit {
   constructor(options) {
     this.inputEl = options.el
     this.tipEl = options.tip
     this.rootEl = options.root
-    this.timer = null
+      // 从 strategries 中简易模糊匹配判断类别
+    this.type = Object.keys(validDict).filter(key => (new RegExp(this.inputEl.getAttribute('name'))).test(key))[0] || 'default'
+    console.info('初始化实例,类型是', this.type)
+      // this.timer = null
   }
+  check() {
+    let { err, msg } = validDict[this.type](this.inputEl.value)
+    this.setTip({ style: err ? 'fail' : 'pass', msg })
+    return !err
+  }
+  setTip({ style, msg }) {
+    let rmStyle = style === 'fail' ? 'pass' : 'fail'
+    this.tipEl.classList.add(style)
+    this.tipEl.classList.remove(rmStyle)
+    this.tipEl.textContent = msg
+  }
+}
 
+/**
+ * 联合缓存变量，获取实例
+ */
+function getInstance(el) {
+  let inputUnit
+  if (!validElList.has(el)) {
+    let tip = el.parentNode.querySelector('.alert-tip')
+    if (!tip) {
+      // 没获取到el, 创建一个
+      tip = document.createElement('span')
+      tip.className = 'alert-tip'
+      el.parentNode.insertBefore(tip, el)
+    }
+    inputUnit = new InputUnit({
+      el,
+      tip
+    })
+    validElList.set(el, inputUnit)
+    console.info('增加 Map 缓存')
+  } else {
+    console.info('从缓存中取出实例')
+    inputUnit = validElList.get(el)
+  }
+  return inputUnit
+}
+
+/**
+ * 根据按钮检查表单数据
+ */
+function checkFrom(btnEl) {
+  let form = btnEl.parentNode
+
+  while (!form.matches('.form')) {
+    if (form === document.documentElement) {
+      form = null
+      break
+    }
+    form = form.parentNode
+  }
+  if (!form) {
+    console.info('没找到范围表单，这是个假按钮')
+  }
+  let inputs = form.querySelectorAll('input')
+    // 所有的元素，检查一遍，得到一个结果数组。如果里面没有false，则返回true，即通过。
+  return ([].map.call(inputs, input => getInstance(input).check()).indexOf(false) === '-1')
+}
+
+function toast(msg, el) {
+  console.info('toast:', msg)
+  if (el) {
+    el.textContent = msg
+  }
 }
