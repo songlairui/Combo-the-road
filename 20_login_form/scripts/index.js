@@ -31,31 +31,61 @@ var strategies = {
       return '\u00d7 ' + errorMsg;
     }
   },
+  isEqual: function(valueArray, errorMsg) {
+    if (valueArray.length > 1 && (new Set(valueArray).size) !== 1) {
+      return errorMsg
+    }
+  },
   default: function(value) {
     return '\u00d7 ' + `没有找到校验规则，随便你输入什么，过得去算我输`
   }
 };
 // 每种表单的验证
 let validDict = {
-  'username': function(value, length) {
+  'username': function(el, length) {
+    let value = el.value
     length = length || 4
     let errorMsg = `用户名长度不能小于 ${length} 位`
     let result = strategies.minLength(value, length, errorMsg)
     return { err: !!result, msg: result || ' \u221a' }
   },
-  'email': function(value) {
+  'email': function(el) {
+    let value = el.value
     let errorMsg = `邮箱格式不正确`
     let result = strategies.isEmail(value, errorMsg)
       // console.info('判断结果', result)
     return { err: !!result, msg: result || ' \u221a' }
   },
-  'passwd': function(value, length) {
+  'passwd': function(el, length) {
+    let value = el.value
     length = length || 4
     let errorMsg = `密码长度不能小于 ${length} 位`
     let result = strategies.minLength(value, length, errorMsg)
     return { err: !!result, msg: result || ' \u221a' }
   },
-  'default': function(value) {
+  'passwdConfirm': function(el) {
+    // console.info(el)
+    let form = el.parentNode
+
+    while (!form.matches('.form')) {
+      if (form === document.documentElement) {
+        form = null
+        break
+      }
+      form = form.parentNode
+    }
+    if (!form) {
+      console.info('没找到范围表单，这是个假按钮')
+      return { err: !!1, msg: ' \u00d7 没找到范围表单，这是个假按钮' }
+    }
+    let valueArray = [].map.call(form.querySelectorAll('[name^="passwd"]'), v => v.value)
+      // console.info('value Array', valueArray)
+    let errorMsg = `确认密码应与密码一致`
+    let result = strategies.isEqual(valueArray, errorMsg)
+    return { err: !!result, msg: result || ' \u221a' }
+  },
+  'default': function(el) {
+    let value = el.value
     let result = strategies.default(value)
     return { err: !!result, msg: result || ' \u221a' }
   }
@@ -118,9 +148,11 @@ document.addEventListener('DOMContentLoaded', function() {
       // }
       // Sign In
       if (e.target.matches('.btn-sign-in')) {
-        // 提交按钮，进行数据检查
+        let toastEl = e.target.parentNode.querySelector('.alert-tip')
+        toast('{{ --- }}', toastEl)
+          // 提交按钮，进行数据检查
         if (!checkFrom(e.target)) {
-          toast('{{ 请重新填写提交 }}', e.target.parentNode.querySelector('.alert-tip'))
+          toast('{{ 请重新填写提交 }}', toastEl)
           return
         }
         // 阻止频繁点击
@@ -135,8 +167,10 @@ document.addEventListener('DOMContentLoaded', function() {
           return AV.User.logIn(emailEl.value, passwdEl.value)
         }).then(function(loginedUser) {
           console.log(loginedUser)
+          toast('{{ 已登录 }}', toastEl)
         }, function(error) {
           console.error('没有登陆成功', error.code, error.message)
+          toast(`{{ 登录失败, ${error.message} }}`, toastEl)
         }).then(function() {
           // 请求处理完成， 设置 参数为false
           progressingList.signin = false
@@ -146,9 +180,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Sign Up
       if (e.target.matches('.btn-sign-up')) {
-        // 提交按钮，进行数据检查
+        let toastEl = e.target.parentNode.querySelector('.alert-tip')
+        toast('{{ --- }}', toastEl)
+          // 提交按钮，进行数据检查
         if (!checkFrom(e.target)) {
-          toast('{{ 请重新填写提交 }}', e.target.parentNode.querySelector('.alert-tip'))
+          toast('{{ 请重新填写提交 }}', toastEl)
           return
         }
         if (progressingList.signup) {
@@ -175,8 +211,10 @@ document.addEventListener('DOMContentLoaded', function() {
           })
           .then(function(loginedUser) {
             console.log('注册成功', loginedUser);
+            toast(`{{ 注册成功 }}`, toastEl)
           }, function(error) {
             console.error('没有注册成功', error.code, error.message)
+            toast(`{{ 注册失败, ${error.message} }}`, toastEl)
           })
           .then(function() {
             progressingList.signup = false
@@ -261,7 +299,7 @@ class InputUnit {
       // this.timer = null
   }
   check() {
-    let { err, msg } = validDict[this.type](this.inputEl.value)
+    let { err, msg } = validDict[this.type](this.inputEl)
     this.setTip({ style: err ? 'fail' : 'pass', msg })
     return !err
   }
@@ -317,7 +355,7 @@ function checkFrom(btnEl) {
   }
   let inputs = form.querySelectorAll('input')
     // 所有的元素，检查一遍，得到一个结果数组。如果里面没有false，则返回true，即通过。
-  return ([].map.call(inputs, input => getInstance(input).check()).indexOf(false) === '-1')
+  return ([].map.call(inputs, input => getInstance(input).check()).indexOf(false) === -1)
 }
 
 function toast(msg, el) {
