@@ -2,7 +2,9 @@ let inited = false
 
 let progressingList = {
   signin: false,
-  signup: false
+  signup: false,
+  animating: false,
+  timer:{}
 }
 let formList = {
 
@@ -109,15 +111,27 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })
 
-
+/**
+ * 切换 signIn signUp 焦点
+ *
+ */
 function switchMain(className, main) {
+  if(progressingList.animating){
+    return console.info('切换间隔要大于100ms')
+  }
+  progressingList.animating = true
   if (!main) return console.info('el 未传入')
   main.setAttribute('data-active', `${className}-end`)
   setTimeout(function() {
     main.setAttribute('data-active', className)
-  }, 0)
+    progressingList.animating = false
+  }, 10)
+  
 }
 
+/**
+ *  事件委托工具函数
+ */
 function searchEl(selector, e) {
   let root = e.currentTarget || document.documentElement
   let el = e.target
