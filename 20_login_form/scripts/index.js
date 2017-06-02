@@ -32,7 +32,8 @@ var strategies = {
     }
   },
   isEqual: function(valueArray, errorMsg) {
-    if (valueArray.length > 1 && (new Set(valueArray).size) !== 1) {
+    // console.info('equal 校验')
+    if (valueArray[0] === '' || valueArray.length === 1 || (new Set(valueArray).size) !== 1) {
       return errorMsg
     }
   },
@@ -65,22 +66,14 @@ let validDict = {
   },
   'passwdConfirm': function(el) {
     // console.info(el)
-    let form = el.parentNode
-
-    while (!form.matches('.form')) {
-      if (form === document.documentElement) {
-        form = null
-        break
-      }
-      form = form.parentNode
-    }
+    let form = findParent('.form', el)
     if (!form) {
       console.info('没找到范围表单，这是个假按钮')
       return { err: !!1, msg: ' \u00d7 没找到范围表单，这是个假按钮' }
     }
     let valueArray = [].map.call(form.querySelectorAll('[name^="passwd"]'), v => v.value)
       // console.info('value Array', valueArray)
-    let errorMsg = `确认密码应与密码一致`
+    let errorMsg = `确认密码应与密码一致有效`
     let result = strategies.isEqual(valueArray, errorMsg)
     return { err: !!result, msg: result || ' \u221a' }
   },
@@ -292,13 +285,32 @@ class InputUnit {
   constructor(options) {
     this.inputEl = options.el
     this.tipEl = options.tip
-    this.rootEl = options.root
-      // 从 strategries 中简易模糊匹配判断类别
+    let form = findParent('.form', this.inputEl)
+    if (form) {
+      console.info(this.inputEl.getAttribute('name'))
+      this.relativeEl = new Set(Array.from(form.querySelectorAll(`[name^=${this.inputEl.getAttribute('name')}]`)))
+      this.relativeEl.delete(this.inputEl)
+    } else {
+      this.relativeEl = new Set()
+    }
+    // console.info(this.relativeEl)
+    // 从 strategries 中简易模糊匹配判断类别
     this.type = Object.keys(validDict).filter(key => (new RegExp(this.inputEl.getAttribute('name'))).test(key))[0] || 'default'
-    console.info('初始化实例,类型是', this.type)
+      // console.info('初始化实例,类型是', this.type)
       // this.timer = null
   }
-  check() {
+  check(withOutRelative) {
+    console.info(!withOutRelative, !this.relativeEl.size)
+    if (!withOutRelative && this.relativeEl.size) {
+      // console.info('here1')
+      Array.from(this.relativeEl).map(item => {
+          //这儿只是检查，不会返回值。 表单校验时，会校验两遍，但是返回值只接受一次
+          getInstance(item).check('only')
+        })
+        // 取到的相关元素不包含自身，取消下边这行return
+        // return
+    }
+    // console.info('here2')
     let { err, msg } = validDict[this.type](this.inputEl)
     this.setTip({ style: err ? 'fail' : 'pass', msg })
     return !err
@@ -341,15 +353,7 @@ function getInstance(el) {
  * 根据按钮检查表单数据
  */
 function checkFrom(btnEl) {
-  let form = btnEl.parentNode
-
-  while (!form.matches('.form')) {
-    if (form === document.documentElement) {
-      form = null
-      break
-    }
-    form = form.parentNode
-  }
+  let form = findParent('.form', btnEl)
   if (!form) {
     console.info('没找到范围表单，这是个假按钮')
   }
@@ -363,4 +367,16 @@ function toast(msg, el) {
   if (el) {
     el.textContent = msg
   }
+}
+
+function findParent(selector, el) {
+  let target = el.parentNode
+  while (!target.matches(selector)) {
+    if (target === document.documentElement) {
+      target = null
+      break
+    }
+    target = target.parentNode
+  }
+  return target
 }
