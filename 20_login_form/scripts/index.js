@@ -4,10 +4,17 @@ let progressingList = {
   signin: false,
   signup: false
 }
+let formList = {
+
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
 
 
+  document.addEventListener('input', function(e) {
+    console.info('表单校验', e.target)
+  })
 
   let main = document.querySelector('main')
   if (main) {
@@ -146,4 +153,14 @@ function init() {
   }).catch(err => {
     console.info('init Err', err)
   })
+}
+
+class inputUnit {
+  constructor(options) {
+    this.inputEl = options.el
+    this.tipEl = options.tip
+    this.rootEl = options.root
+    this.timer = null
+  }
+
 }
