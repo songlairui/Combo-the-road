@@ -2,10 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.addEventListener('input', function(e) {
     if (e.target.matches('input')) {
-      let inputUnit = getInstance(e.target)
-      inputUnit.check()
+      getInstance(e.target).check()
     }
-    // console.info('表单校验', e.target)
+    //TODO , 是否使用节流函数？
   })
 
   let main = document.querySelector('main')
@@ -13,15 +12,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let btnSignIn = main.querySelector('[data-target="signin"]')
     let btnSignUp = main.querySelector('[data-target="signup"]')
     main.addEventListener('click', function(e) {
+
+      let forgetPanel = main.querySelector('.forget-panel')
+        // 如果点击不在忘记密码的元素下，则隐藏这个元素
+      if (!searchEl('.forget-panel', e)) {
+        if (!forgetPanel) return
+          // 忘记密码动作
+        if (e.target.matches('.forget')) {
+          forgetPanel.classList.add('show')
+        } else {
+          forgetPanel.classList.remove('show')
+
+        }
+      }
       // 当前激活的状态
       let current = main.dataset.active === 'signup' ? 'signup' : 'signin'
       if (e.target.matches('[data-target]')) {
         console.info('点击到了某个要切换的按钮')
-        if (current === e.target.dataset.target) {
-          return
+        if (current !== e.target.dataset.target) {
+          switchMain(e.target.dataset.target, main)
         }
-        switchMain(e.target.dataset.target, main)
-          // 在这儿捕获了行为，后边的不执行了
+        // 在这儿捕获了行为，后边的不执行了
         return
       }
       // 如果登录或注册面板被点击，则切换其到焦点状态
@@ -49,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
       //     return
       //   }
       // }
+
       // Sign In
       if (e.target.matches('.btn-sign-in')) {
         let toastEl = e.target.parentNode.querySelector('.alert-tip')
@@ -124,7 +136,37 @@ document.addEventListener('DOMContentLoaded', function() {
           })
         return
       }
+      // Reset Btn
+      if (e.target.matches('.btn-reset')) {
+        let toastEl = e.target.parentNode.querySelector('.alert-tip')
+        toast('{{ --- }}', toastEl)
+          // 提交按钮，进行数据检查
+        if (!checkFrom(e.target)) {
+          toast('{{ 请重新填写提交 }}', toastEl)
+          return
+        }
+        if (progressingList.reset) {
+          return console.info('正在等待注册结果')
+        }
+        progressingList.reset = true
+        let emailEl = forgetPanel.querySelector('input[name="email"]')
+        window.tmp = emailEl
+        init().then(function() {
+            return AV.User.requestPasswordReset(emailEl.value)
+          }).then(function(success) {
+            // console.log('注册成功', loginedUser);
+            toast(`{{ 重置成功 ${JSON.stringify(success,4)} }}`, toastEl)
+          }, function(error) {
+            // console.error('没有注册成功', error.code, error.message)
+            toast(`{{ 重置失败, ${error.message} }}`, toastEl)
+          })
+          .then(function() {
+            progressingList.reset = false
+          })
+      }
 
+
+      // console.info(e.target)
     })
   }
 })

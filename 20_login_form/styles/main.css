@@ -60,7 +60,7 @@ main {
   flex: 1;
   perspective: 1000px;
   transform-style: preserve-3d;
-  flex-wrap: wrap;
+  flex-flow: column nowrap;
 }
 
 main>.boards,
@@ -70,12 +70,17 @@ main>nav>ul>li {
   display: flex;
   justify-content: center;
   align-items: center;
-  ;
 }
 
 main>nav {
-  flex: 1 0 100%;
+  /*flex: 1 0 100%;*/
+  width: 100%;
   flex-flow: column;
+}
+
+main>.boards,
+main>.external {
+  width: 100%;
 }
 
 main>nav>ul {
@@ -163,7 +168,7 @@ main[data-active='signup']>nav>.underline::after {
 /* 表单动画 */
 
 main>.boards {
-  transform: translateZ(-100px);
+  transform: translate3d(0px, 50px, -100px);
   transform-style: preserve-3d;
 }
 
@@ -310,7 +315,7 @@ main[data-active='signup']>.boards>.signup>.board {
 
 .form .alert-tip {
   font-size: .8rem;
-  color: #3B4465;
+  color: red;
   padding: .1rem .8rem;
   display: block;
   border-radius: .1rem;
@@ -350,7 +355,7 @@ main>.boards [class^='sign'] .form::after {
 
 main[data-active='signup']>.boards .signin .form,
 main[data-active='signin']>.boards .signup .form {
-  background: rgba(235, 255, 235, .9)
+  background: rgba(235, 255, 235, 1)
 }
 
 main[data-active='signup']>.boards .signin .form::after,
@@ -409,4 +414,44 @@ main[data-active='signin']>.boards .signup .form>* {
       transform: translate3d(0px, 0px, 0px) scaleX(1.1)
     }
   }
+}
+
+.forget-panel {
+  transform-origin: center center 150px;
+  transform: translate3d(0px, -300px, -150px) rotateX(0deg);
+  /*background: rgba(235, 255, 235, .6);*/
+  transform-style: preserve-3d;
+  max-width: 300px;
+  transition: transform .4s;
+}
+
+.forget-panel>.board {
+  transform: translate3d(0, 0, -10px) rotateX(-180deg);
+  min-height: 10rem;
+  background: rgba(255, 255, 255, 1);
+  border-radius: .2rem;
+  transform-style: preserve-3d;
+  transition: transform .4s;
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, .5);
+}
+
+.forget-panel.show {
+  transform: translateY(-300px) rotateX(-180deg);
+}
+
+.forget-panel.show>.board {
+  /*transform: translate3d(0, 0px, -10px) rotateX(-180deg);*/
+}
+
+
+/* 忘记密码 */
+
+.forget {
+  font-size: .6rem;
+  color: #3B4465;
+  padding: .1rem .8rem;
+  display: block;
+  border-radius: .1rem;
+  text-align: center;
+  cursor: pointer
 }

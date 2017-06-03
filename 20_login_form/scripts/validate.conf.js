@@ -3,6 +3,7 @@ let inited = false
 let progressingList = {
   signin: false,
   signup: false,
+  reset: false,
   animating: false,
   timer: {}
 }
