@@ -74,6 +74,7 @@ main>nav>ul>li {
 
 main>nav {
   /*flex: 1 0 100%;*/
+  margin-top: 5rem;
   width: 100%;
   flex-flow: column;
 }
@@ -168,7 +169,7 @@ main[data-active='signup']>nav>.underline::after {
 /* 表单动画 */
 
 main>.boards {
-  transform: translate3d(0px, 50px, -100px);
+  transform: translate3d(0px, 10px, -150px);
   transform-style: preserve-3d;
 }
 
@@ -314,13 +315,22 @@ main[data-active='signup']>.boards>.signup>.board {
 /* 信息提示 */
 
 .form .alert-tip {
+  transform: rotateX(90deg);
+  height: 1.3em;
+  line-height: 1.3em;
   font-size: .4rem;
   color: red;
-  padding: .1rem .2rem;
+  /*padding: .1rem .2rem;*/
   display: block;
   border-radius: .1rem;
   /*transition: background .5s, color .5s;*/
+  transition: transform .4s;
+  transform-style: preserve-3d;
   text-align: center;
+}
+
+.submit .alert-tip {
+  transform: rotateX(0deg)
 }
 
 .form .alert-tip::before {
@@ -329,12 +339,14 @@ main[data-active='signup']>.boards>.signup>.board {
 }
 
 .form .alert-tip.fail {
-  background: #fcc;
+  transform: rotateX(0deg);
+  background: #fee;
   color: red
 }
 
 .form .alert-tip.pass {
-  background: #cfc;
+  transform: rotateX(360deg);
+  background: #efe;
   color: green
 }
 
@@ -436,7 +448,8 @@ main[data-active='signin']>.boards .signup .form>* {
   background: rgba(255, 255, 255, 1);
   border-radius: .2rem;
   transform-style: preserve-3d;
-  transition: transform .4s;
+  transition: opacity .4s;
+  opacity: 0;
   box-shadow: 0 2px 10px -3px rgba(0, 0, 0, .5);
 }
 
@@ -445,6 +458,7 @@ main[data-active='signin']>.boards .signup .form>* {
 }
 
 .forget-panel.show>.board {
+  opacity: 1;
   /*transform: translate3d(0, 0px, -10px) rotateX(-180deg);*/
 }
 

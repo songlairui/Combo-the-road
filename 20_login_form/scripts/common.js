@@ -66,7 +66,7 @@ function toast(msg, el) {
  * 切换 signIn signUp 焦点
  */
 function switchMain(className, main) {
-  clearFormValid(document.querySelector(`main .boards .${className} .form`))
+  clearFormValid(document.querySelector(`main .boards .${className === 'signin' ? 'signup' : 'signin'} .form`))
   if (progressingList.animating) {
     return console.info('切换间隔要大于100ms')
   }

@@ -19,11 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!forgetPanel) return
           // 忘记密码动作
         if (e.target.matches('.forget')) {
-          clearFormValid(forgetPanel)
           forgetPanel.classList.add('show')
         } else {
           forgetPanel.classList.remove('show')
-
+          clearFormValid(forgetPanel)
         }
       }
       // 当前激活的状态
