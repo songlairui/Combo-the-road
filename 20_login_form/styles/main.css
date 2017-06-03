@@ -315,7 +315,7 @@ main[data-active='signup']>.boards>.signup>.board {
 
 .form .alert-tip {
   font-size: .4rem;
-  /*color: red;*/
+  color: red;
   padding: .1rem .2rem;
   display: block;
   border-radius: .1rem;
