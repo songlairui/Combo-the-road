@@ -53,10 +53,15 @@ function findParent(selector, el) {
 }
 
 // 显示提示信息
-function toast(msg, el) {
+function toast(msg, el, className) {
   console.info('toast:', msg)
   if (el) {
     el.textContent = msg
+    if (className) {
+      el.classList.remove('fail')
+      el.classList.remove('pass')
+      el.classList.add(className)
+    }
   }
 }
 
@@ -125,7 +130,7 @@ function checkFrom(btnEl) {
 function clearFormValid(poolEl) {
   if (poolEl) {;
     [].map.call(poolEl.querySelectorAll('.alert-tip'), v => {
-      v.textContent = ''
+      // v.textContent = ''
       v.classList.remove('fail')
       v.classList.remove('pass')
     })

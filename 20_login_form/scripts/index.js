@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toast('{{ --- }}', toastEl)
           // 提交按钮，进行数据检查
         if (!checkFrom(e.target)) {
-          toast('{{ 请重新填写提交 }}', toastEl)
+          toast('{{ 请重新填写提交 }}', toastEl, 'fail')
           return
         }
         // 阻止频繁点击
@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
           return AV.User.logIn(emailEl.value, passwdEl.value)
         }).then(function(loginedUser) {
           // console.log(loginedUser)
-          toast('{{ 已登录 }}', toastEl)
+          toast('{{ 已登录 }}', toastEl, 'pass')
         }, function(error) {
           // console.error('没有登陆成功', error.code, error.message)
-          toast(`{{ 登录失败, ${error.message} }}`, toastEl)
+          toast(`{{ 登录失败, ${error.message} }}`, toastEl, 'fail')
         }).then(function() {
           // 请求处理完成， 设置 参数为false
           progressingList.signin = false
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toast('{{ --- }}', toastEl)
           // 提交按钮，进行数据检查
         if (!checkFrom(e.target)) {
-          toast('{{ 请重新填写提交 }}', toastEl)
+          toast('{{ 请重新填写提交 }}', toastEl, 'fail')
           return
         }
         if (progressingList.signup) {
@@ -126,10 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
           })
           .then(function(loginedUser) {
             // console.log('注册成功', loginedUser);
-            toast(`{{ 注册成功 }}`, toastEl)
+            toast(`{{ 注册成功 }}`, toastEl, 'pass')
           }, function(error) {
             // console.error('没有注册成功', error.code, error.message)
-            toast(`{{ 注册失败, ${error.message} }}`, toastEl)
+            toast(`{{ 注册失败, ${error.message} }}`, toastEl, 'fail')
           })
           .then(function() {
             progressingList.signup = false
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toast('{{ --- }}', toastEl)
           // 提交按钮，进行数据检查
         if (!checkFrom(e.target)) {
-          toast('{{ 请重新填写提交 }}', toastEl)
+          toast('{{ 请重新填写提交 }}', toastEl, 'fail')
           return
         }
         if (progressingList.reset) {
@@ -155,10 +155,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return AV.User.requestPasswordReset(emailEl.value)
           }).then(function(success) {
             // console.log('注册成功', loginedUser);
-            toast(`{{ 重置成功 ${JSON.stringify(success,4)} }}`, toastEl)
+            toast(`{{ 重置成功 ${JSON.stringify(success,4)} }}`, toastEl, 'pass')
           }, function(error) {
             // console.error('没有注册成功', error.code, error.message)
-            toast(`{{ 重置失败, ${error.message} }}`, toastEl)
+            toast(`{{ 重置失败, ${error.message} }}`, toastEl, 'fail')
           })
           .then(function() {
             progressingList.reset = false
