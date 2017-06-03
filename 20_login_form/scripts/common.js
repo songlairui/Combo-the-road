@@ -66,6 +66,7 @@ function toast(msg, el) {
  * 切换 signIn signUp 焦点
  */
 function switchMain(className, main) {
+  clearFormValid(document.querySelector(`main .boards .${className} .form`))
   if (progressingList.animating) {
     return console.info('切换间隔要大于100ms')
   }
@@ -117,4 +118,16 @@ function checkFrom(btnEl) {
   let inputs = form.querySelectorAll('input')
     // 所有的元素，检查一遍，得到一个结果数组。如果里面没有false，则返回true，即通过。
   return ([].map.call(inputs, input => getInstance(input).check()).indexOf(false) === -1)
+}
+/**
+ * 清空表单的检查状态
+ */
+function clearFormValid(poolEl) {
+  if (poolEl) {;
+    [].map.call(poolEl.querySelectorAll('.alert-tip'), v => {
+      v.textContent = ''
+      v.classList.remove('fail')
+      v.classList.remove('pass')
+    })
+  }
 }

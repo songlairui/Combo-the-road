@@ -314,13 +314,18 @@ main[data-active='signup']>.boards>.signup>.board {
 /* 信息提示 */
 
 .form .alert-tip {
-  font-size: .8rem;
-  color: red;
-  padding: .1rem .8rem;
+  font-size: .4rem;
+  /*color: red;*/
+  padding: .1rem .2rem;
   display: block;
   border-radius: .1rem;
-  transition: background .5s, color .5s;
-  text-align: center
+  /*transition: background .5s, color .5s;*/
+  text-align: center;
+}
+
+.form .alert-tip::before {
+  content: ' ';
+  white-space: pre-wrap;
 }
 
 .form .alert-tip.fail {
