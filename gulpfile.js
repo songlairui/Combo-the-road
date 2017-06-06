@@ -3,7 +3,7 @@ var browserSync = require('browser-sync')
 var reload = browserSync.reload
 
 // 正在工作的目录
-var working_target = '20_login_form'
+var working_target = '21_fresh_ui'
 
 gulp.task('serve', function(){
   browserSync({
