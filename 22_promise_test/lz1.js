@@ -53,3 +53,6 @@ var test = [
 ]
 
 test[3]()
+  // 浏览器执行 test[3]()
+  // 或
+  // 浏览器执行 LazyMan("Hank").sleepFirst(5).eat("supper")

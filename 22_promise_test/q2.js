@@ -34,4 +34,17 @@ var queue = [
     .then(play)
 })()
 
-// play()
+
+// 浏览器可执行
+function play() {
+  return queue.reduce((prev, [func, interval]) => {
+      return prev.then(() => new Promise(resolve => {
+        setTimeout(() => {
+          func()
+          resolve()
+        }, interval)
+      }))
+    }, Promise.resolve())
+    .then(play)
+}
+// 浏览器控制台 执行 play()
