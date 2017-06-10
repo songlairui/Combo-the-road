@@ -12,8 +12,8 @@ function yellow() {
 
 var queue = [
   [red, 3000],
-  [green, 2000],
-  [yellow, 1000]
+  [green, 1000],
+  [yellow, 2000]
 ];
 (function play() {
   return queue.reduce((prev, [func, interval]) => {
