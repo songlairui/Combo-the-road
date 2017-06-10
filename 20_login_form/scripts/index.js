@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // 输入事件
   document.addEventListener('input', function(e) {
     if (e.target.matches('input')) {
-      getInstance(e.target).check()
+      e.target.value === '' ?
+        getInstance(e.target).clearCheck() :
+        getInstance(e.target).check()
     }
     //TODO , 是否使用节流函数？
   })

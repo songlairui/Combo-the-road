@@ -14,6 +14,7 @@ let validElList = new Map()
 // 表单校验使用的策略
 var strategies = {
   isEmpty: function(value, errorMsg) {
+    errorMsg = errorMsg || '为空'
     if (value === '') {
       return '\u00d7 ' + errorMsg;
     }
@@ -49,13 +50,17 @@ let validDict = {
     let value = el.value
     length = length || 4
     let errorMsg = `用户名长度不能小于 ${length} 位`
-    let result = strategies.minLength(value, length, errorMsg)
+    let result
+    result = strategies.isEmpty(value, '用户名不能为空')
+    result = result || strategies.minLength(value, length, errorMsg)
     return { err: !!result, msg: result || ' \u221a' }
   },
   'email': function(el) {
     let value = el.value
     let errorMsg = `邮箱格式不正确`
-    let result = strategies.isEmail(value, errorMsg)
+    let result
+    result = strategies.isEmpty(value, '邮箱不能为空')
+    result = result || strategies.isEmail(value, errorMsg)
       // console.info('判断结果', result)
     return { err: !!result, msg: result || ' \u221a' }
   },
@@ -63,7 +68,9 @@ let validDict = {
     let value = el.value
     length = length || 4
     let errorMsg = `密码长度不能小于 ${length} 位`
-    let result = strategies.minLength(value, length, errorMsg)
+    let result
+    result = strategies.isEmpty(value, '密码不能为空')
+    result = result || strategies.minLength(value, length, errorMsg)
     return { err: !!result, msg: result || ' \u221a' }
   },
   'passwdConfirm': function(el) {
@@ -76,7 +83,9 @@ let validDict = {
     let valueArray = [].map.call(form.querySelectorAll('[name^="passwd"]'), v => v.value)
       // console.info('value Array', valueArray)
     let errorMsg = `确认密码应与密码一致有效`
-    let result = strategies.isEqual(valueArray, errorMsg)
+    let result
+    result = strategies.isEmpty(el.value, '确认密码不能为空')
+    result = result || strategies.isEqual(valueArray, errorMsg)
     return { err: !!result, msg: result || ' \u221a' }
   },
   'default': function(el) {

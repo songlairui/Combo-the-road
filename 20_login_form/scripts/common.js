@@ -58,8 +58,7 @@ function toast(msg, el, className) {
   if (el) {
     el.textContent = msg
     if (className) {
-      el.classList.remove('fail')
-      el.classList.remove('pass')
+      el.classList.remove('fail', 'pass')
       el.classList.add(className)
     }
   }
@@ -144,8 +143,7 @@ function clearFormValid(poolEl) {
   if (poolEl) {;
     [].map.call(poolEl.querySelectorAll('.alert-tip'), v => {
       v.textContent = ''
-      v.classList.remove('fail')
-      v.classList.remove('pass')
+      v.classList.remove('fail', 'pass')
     })
   }
 }

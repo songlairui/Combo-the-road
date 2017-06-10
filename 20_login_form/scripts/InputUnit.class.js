@@ -36,6 +36,9 @@ class InputUnit {
     this.setTip({ style: err ? 'fail' : 'pass', msg })
     return !err
   }
+  clearCheck() {
+    this.tipEl.classList.remove('fail', 'pass')
+  }
   setTip({ style, msg }) {
     let rmStyle = style === 'fail' ? 'pass' : 'fail'
     this.tipEl.classList.add(style)
