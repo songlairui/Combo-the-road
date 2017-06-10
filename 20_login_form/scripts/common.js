@@ -107,6 +107,10 @@ function getInstance(el) {
       el,
       tip
     })
+    if (validElList.size > 10) {
+      console.info('缓存数量超过 10，删除最开始的一些')
+      validElList.delete(validElList.keys().next().value)
+    }
     validElList.set(el, inputUnit)
     console.info('增加 Map 缓存')
   } else {
