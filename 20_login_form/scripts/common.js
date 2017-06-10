@@ -147,6 +147,18 @@ function clearFormValid(poolEl) {
     })
   }
 }
+/**
+ * 清空表单的填写内容
+ */
+function clearForm(poolEl) {
+  poolEl = poolEl || document.querySelector('main')
+  if (poolEl) {;
+    clearFormValid(poolEl)
+    void[].map.call(poolEl.querySelectorAll('input'), v => {
+      v.value & (v.value = '')
+    })
+  }
+}
 
 /**
  * 切换登录状态
@@ -159,7 +171,7 @@ function turnAuthed(main, user) {
   let title = document.querySelector('section#profile #userName')
   if (user) {
     // console.info('已登录', signinFrom)
-    clearFormValid(signinFrom)
+    clearForm(signinFrom)
     title.textContent = user.get('username')
     void main.offsetWidth
     main.classList.add('authed')
