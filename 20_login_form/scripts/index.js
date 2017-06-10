@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!forgetPanel) return
           // 忘记密码动作
         if (e.target.matches('.forget')) {
+          checkFrom(forgetPanel.querySelector(`button.btn`))
           forgetPanel.classList.add('show')
         } else {
           forgetPanel.classList.remove('show')
@@ -141,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let toastEl = e.target.parentNode.querySelector('.alert-tip')
         toast('{{ --- }}', toastEl)
           // 提交按钮，进行数据检查
-        if (!checkFrom(e.target)) {
+        if (!checkFrom(e.target, 'submit')) {
           toast('{{ 请重新填写提交 }}', toastEl, 'fail')
           return
         }
@@ -150,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         progressingList.reset = true
         let emailEl = forgetPanel.querySelector('input[name="email"]')
-        window.tmp = emailEl
+          // window.tmp = emailEl
         init().then(function() {
             return AV.User.requestPasswordReset(emailEl.value)
           }).then(function(success) {
