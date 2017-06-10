@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let toastEl = e.target.parentNode.querySelector('.alert-tip')
         toast('{{ --- }}', toastEl)
           // 提交按钮，进行数据检查
-        if (!checkFrom(e.target)) {
+        if (!checkFrom(e.target, 'submit')) {
           toast('{{ 请重新填写提交 }}', toastEl, 'fail')
           return
         }
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let toastEl = e.target.parentNode.querySelector('.alert-tip')
         toast('{{ --- }}', toastEl)
           // 提交按钮，进行数据检查
-        if (!checkFrom(e.target)) {
+        if (!checkFrom(e.target, 'submit')) {
           toast('{{ 请重新填写提交 }}', toastEl, 'fail')
           return
         }
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return
       }
       // Reset Btn
-      if (e.target.matches('.btn-reset')) {
+      if (e.target.matches('.btn-reset', 'submit')) {
         let toastEl = e.target.parentNode.querySelector('.alert-tip')
         toast('{{ --- }}', toastEl)
           // 提交按钮，进行数据检查

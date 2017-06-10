@@ -13,7 +13,7 @@ let validElList = new Map()
 
 // 表单校验使用的策略
 var strategies = {
-  isNonEmpty: function(value, errorMsg) {
+  isEmpty: function(value, errorMsg) {
     if (value === '') {
       return '\u00d7 ' + errorMsg;
     }

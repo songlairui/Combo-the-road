@@ -71,17 +71,22 @@ function toast(msg, el, className) {
  * 切换 signIn signUp 焦点
  */
 function switchMain(className, main) {
-  clearFormValid(document.querySelector(`main .boards .${className === 'signin' ? 'signup' : 'signin'} .form`))
-  if (progressingList.animating) {
-    return console.info('切换间隔要大于100ms')
-  }
-  progressingList.animating = true
+  let [target, prev] = ['signin', 'signup']
+  if (className !== 'signin')[target, prev] = [prev, target]
+
   if (!main) return console.info('el 未传入')
+  clearFormValid(main.querySelector(`.boards .${prev} .form`))
+    // if (progressingList.animating) {
+    //   return console.info('切换间隔要大于100ms')
+    // }
+    // progressingList.animating = true
   main.setAttribute('data-active', `${className}-end`)
-  setTimeout(function() {
-    main.setAttribute('data-active', className)
-    progressingList.animating = false
-  }, 10)
+  void main.offsetWidth
+  main.setAttribute('data-active', className)
+  checkFrom(main.querySelector(`.${target} button.btn`))
+    // setTimeout(function() {
+    //   progressingList.animating = false
+    // }, 10)
 
 }
 
@@ -115,14 +120,17 @@ function getInstance(el) {
 /**
  * 根据按钮检查表单数据
  */
-function checkFrom(btnEl) {
+function checkFrom(btnEl, type) {
   let form = findParent('.form', btnEl)
   if (!form) {
     console.info('没找到范围表单，这是个假按钮')
   }
   let inputs = form.querySelectorAll('input')
+
+  // 如果不是提交按钮点击的，就忽略检查‘空值’，即空值的表单不取，
+  let toValidInputs = [].filter.call(inputs, input => type === 'submit' || input.value !== '')
     // 所有的元素，检查一遍，得到一个结果数组。如果里面没有false，则返回true，即通过。
-  return ([].map.call(inputs, input => getInstance(input).check()).indexOf(false) === -1)
+  return (toValidInputs.map(input => getInstance(input).check()).indexOf(false) === -1)
 }
 /**
  * 清空表单的检查状态

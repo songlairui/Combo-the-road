@@ -318,7 +318,7 @@ main[data-active='signup']>.boards>.signup>.board {
   transform: scaleY(0);
   height: 1.3em;
   line-height: 1.3em;
-  font-size: .4rem;
+  font-size: .75rem;
   color: red;
   /*padding: .1rem .2rem;*/
   display: block;
