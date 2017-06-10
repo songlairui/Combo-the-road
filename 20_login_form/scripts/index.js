@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 获取登录状态 。
     init().then(function() {
       // let user = AV.User.current()
-      turnAuthed(main)
+      setTimeout(turnAuthed, 600)
     })
     let btnSignIn = main.querySelector('[data-target="signin"]')
     let btnSignUp = main.querySelector('[data-target="signup"]')
@@ -41,6 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
           forgetPanel.classList.remove('show')
           clearFormValid(forgetPanel)
         }
+      }
+      // 如果点击 忘记密码 场景的 关闭
+      if (e.target.matches('.forget-panel .close')) {
+        forgetPanel.classList.remove('show')
+        clearFormValid(forgetPanel)
+        return
       }
       // 当前激活的状态
       let current = main.dataset.active === 'signup' ? 'signup' : 'signin'

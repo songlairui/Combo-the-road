@@ -143,7 +143,7 @@ function checkFrom(btnEl, type) {
 function clearFormValid(poolEl) {
   if (poolEl) {;
     [].map.call(poolEl.querySelectorAll('.alert-tip'), v => {
-      // v.textContent = ''
+      v.textContent = ''
       v.classList.remove('fail')
       v.classList.remove('pass')
     })

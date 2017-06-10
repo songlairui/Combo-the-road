@@ -301,6 +301,7 @@ main[data-active='signup']>.boards>.signup>.board {
   background: transparent;
   border: none;
   border-bottom: thin solid lightblue;
+  transition: border .4s;
 }
 
 .form button {
@@ -317,19 +318,23 @@ main[data-active='signup']>.boards>.signup>.board {
 /* 信息提示 */
 
 .form .alert-tip {
-  transform: scaleY(0);
+  transform: scaleY(0) rotate(0deg) translate3d(0, 0, 0);
   /*height: 1.3em;*/
   line-height: 1.3em;
   font-size: .75rem;
-  color: red;
+  max-width: 176px;
+  color: rgb(169, 68, 66);
   /*padding: .1rem .2rem;*/
   display: block;
   border-radius: .1rem;
   /*transition: background .5s, color .5s;*/
-  transition: transform .4s;
+  transition: transform .4s, height .4s;
   /*transform-style: preserve-3d;*/
-  text-align: center;
-  white-space: pre-line
+  text-align: right;
+  white-space: pre-line;
+  transform-origin: bottom right;
+  position: absolute;
+  width: 100%;
 }
 
 .form .alert-tip::before {
@@ -338,15 +343,24 @@ main[data-active='signup']>.boards>.signup>.board {
 }
 
 .form .alert-tip.fail {
-  transform: scaleY(1);
-  background: #fee;
-  color: red
+  transform: scaleY(1) rotate(1deg) translate3d(5px, 5px, 0);
+  /*background: #fee;*/
+  /*color: rgb(150, 50, 50)*/
 }
 
-.form .alert-tip.pass {
-  transform: scaleY(1);
-  background: #efe;
-  color: green
+.form .submit .alert-tip {
+  transform-origin: top;
+}
+
+.form .submit .alert-tip.fail {
+  position: static;
+  transform: scaleY(1) rotate(0) translate3d(0, 0, 0);
+  text-align: center;
+  background: #fff
+}
+
+.form .alert-tip.fail+input {
+  border-bottom-color: rgb(200, 50, 50);
 }
 
 
@@ -443,12 +457,27 @@ main[data-active='signin']>.boards .signup .form>* {
   transition: transform .4s;
 }
 
+.forget-panel .board>span.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  padding: .2rem .6rem;
+  color: #3B4465;
+  cursor: pointer;
+}
+
+.forget-panel .board>span.close::before {
+  content: '-';
+  display: block;
+}
+
 
 /* 登录面板 */
 
 .forget-panel>.board {
   transform: translate3d(0, 0px, -10px) rotateX(-180deg);
-  min-height: 10rem;
+  min-height: 3rem;
   background: rgba(255, 255, 255, 1);
   border-radius: .2rem;
   transform-style: preserve-3d;
@@ -497,9 +526,15 @@ section#profile>.board {
 }
 
 section#profile>.board>h1 {
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: #3B4465;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
+}
+
+section#profile>.board>h1>span#userName {
+  font-size: 1.8em;
+  color: #3B4465;
+  text-shadow: 0 1px 1px #3B4465
 }
 
 main {

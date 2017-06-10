@@ -40,6 +40,8 @@ class InputUnit {
     let rmStyle = style === 'fail' ? 'pass' : 'fail'
     this.tipEl.classList.add(style)
     this.tipEl.classList.remove(rmStyle)
-    this.tipEl.textContent = msg
+    if (style === 'fail') {
+      this.tipEl.textContent = msg
+    }
   }
 }

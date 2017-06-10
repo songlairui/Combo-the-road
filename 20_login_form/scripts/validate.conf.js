@@ -36,7 +36,7 @@ var strategies = {
   isEqual: function(valueArray, errorMsg) {
     // console.info('equal 校验')
     if (valueArray[0] === '' || valueArray.length === 1 || (new Set(valueArray).size) !== 1) {
-      return errorMsg
+      return '\u00d7 ' + errorMsg
     }
   },
   default: function(value) {
