@@ -121,7 +121,12 @@ function getInstance(el) {
  * 根据按钮检查表单数据
  */
 function checkFrom(btnEl, type) {
-  let form = findParent('.form', btnEl)
+  let form
+  if (btnEl.matches('.form')) {
+    form = btnEl
+  } else {
+    form = findParent('.form', btnEl)
+  }
   if (!form) {
     console.info('没找到范围表单，这是个假按钮')
   }
@@ -142,5 +147,29 @@ function clearFormValid(poolEl) {
       v.classList.remove('fail')
       v.classList.remove('pass')
     })
+  }
+}
+
+/**
+ * 切换登录状态
+ */
+function turnAuthed(main, user) {
+  main = main || document.querySelector('main')
+  user = user || AV.User.current()
+  let signinFrom = main.querySelector('.signin .form')
+    // console.info(main, user, signinFrom)
+  let title = document.querySelector('section#profile #userName')
+  if (user) {
+    // console.info('已登录', signinFrom)
+    clearFormValid(signinFrom)
+    title.textContent = user.get('username')
+    void main.offsetWidth
+    main.classList.add('authed')
+  } else {
+    // console.info('未登录', signinFrom)
+    checkFrom(signinFrom)
+    title.textContent = '{{ -- }}'
+    void main.offsetWidth
+    main.classList.remove('authed')
   }
 }

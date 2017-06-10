@@ -1,18 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
-
+  // 输入事件
   document.addEventListener('input', function(e) {
     if (e.target.matches('input')) {
       getInstance(e.target).check()
     }
     //TODO , 是否使用节流函数？
   })
-
+  let authedDOM = document.querySelector('section#profile')
+  authedDOM.addEventListener('click', function(e) {
+    console.info(e.target)
+      // logout 行为，这是另一个显示区域，相应优先级在 ‘重置密码’ 之前
+    if (e.target.matches('section#profile .form button')) {
+      console.info('准备登出')
+      init().then(function() {
+        AV.User.logOut()
+        turnAuthed()
+      })
+      return
+    }
+  })
   let main = document.querySelector('main')
   if (main) {
+    // 获取登录状态 。
+    init().then(function() {
+      // let user = AV.User.current()
+      turnAuthed(main)
+    })
     let btnSignIn = main.querySelector('[data-target="signin"]')
     let btnSignUp = main.querySelector('[data-target="signup"]')
     main.addEventListener('click', function(e) {
-
       let forgetPanel = main.querySelector('.forget-panel')
         // 如果点击不在忘记密码的元素下，则隐藏这个元素
       if (!searchEl('.forget-panel', e)) {
@@ -84,9 +100,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }).then(function(loginedUser) {
           // console.log(loginedUser)
           toast('{{ 已登录 }}', toastEl, 'pass')
+          turnAuthed()
         }, function(error) {
           // console.error('没有登陆成功', error.code, error.message)
-          toast(`{{ 登录失败, ${error.message} }}`, toastEl, 'fail')
+          toast(`登录失败\n${error.message}`, toastEl, 'fail')
         }).then(function() {
           // 请求处理完成， 设置 参数为false
           progressingList.signin = false
