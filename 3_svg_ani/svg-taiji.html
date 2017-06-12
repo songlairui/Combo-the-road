@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TaiJi</title>
+  <style>
+    html,
+    body {
+      display: flex;
+      margin: 0;
+    }
+    
+    html {
+      height: 100%;
+      flex-flow: row;
+      min-height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    body {
+      background: yellowgreen;
+      min-width: 100%;
+      /*min-height: 100%;*/
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="1000" height="1000" viewBox='-200 -200 1000 1000'>
+    <defs>
+      <mask id="mask-circle-1">
+        <circle cx="250" cy="250" r="200" fill="white"></circle>
+        <circle cx="250" cy="150" r="25" fill='black'></circle>
+      </mask>
+      <mask id="mask-circle-2">
+        <circle cx="250" cy="250" r="200" fill="white"></circle>
+        <circle cx="250" cy="350" r="25" fill='black'></circle>
+      </mask>
+      <style>
+        .path{
+          fill-opacity: .9;
+          stroke: red;
+          stroke-width: 0;
+          stroke-opacity: .3;
+          transform: rotate(180deg);
+          animation: rotate .8s ease-in 0s infinite normal forwards
+        }
+        #positive{
+          fill: black;
+          transform-origin: 250px 150px;
+        }
+        #nagitive{
+          fill: white;
+          transform-origin: 250px 350px;
+        }
+        @keyframes rotate{
+          0%,100%{
+            transform: rotate(180deg)
+          }
+          50%{
+            transform: rotate(0deg)
+          }
+          55%{
+            transform: rotate(5deg)
+          }
+          60%{
+            transform: rotate(0deg)
+          }
+          65%{
+            transform: rotate(2deg)
+          }
+          70%{
+            transform: rotate(0deg)
+          }
+          90%{
+            transform: rotate(0deg)
+          }
+        }
+      </style>
+    </defs>
+    <rect width="500" height="500" x="0" y="0" fill='white' fill-opacity='.5'></rect>
+    <path d="M 250 50
+            A 200 200 0 0 0 250 450
+            A 100 100 0 0 1 250 250
+            A 100 100 0 1 0 250 50
+            " id='positive' class='path' mask='url(#mask-circle-1)'></path>
+    <path d="M 250 50
+            A 200 200 0 0 1 250 450
+            A 100 100 0 0 1 250 250
+            A 100 100 0 1 0 250 50
+            " id='nagitive' class='path' mask='url(#mask-circle-2)'></path>
+    <circle cx="250" cy="350" r="25" stroke="red" stroke-width="0" fill="black" fill-opacity="1" stroke-opacity='.8'></circle>
+    <circle cx="250" cy="150" r="25" stroke="red" stroke-width="0" fill="white" fill-opacity="1" stroke-opacity='.8'></circle>
+  </svg>
+</body>
+
+</html>
