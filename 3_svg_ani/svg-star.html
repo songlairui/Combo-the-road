@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG - five point star</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+    }
+    
+    .tip {
+      min-width: 40%;
+      white-space: pre-wrap;
+      background: lightblue;
+      color: navy;
+      padding: .5rem;
+      border-radius: .5rem;
+      margin: .5rem;
+    }
+    
+    .tip::after {
+      content: '';
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="255" height="240" viewBox="0 0 51 48">
+    <path fill="none" stroke="#000" d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+  </svg>
+  <div class="tip2">
+    点击即停止，再次点击重新开始
+  </div>
+  <div class="tip"></div>
+  <div class="result">
+    <blockquote>
+      <pre>m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z</pre> 换行
+      <pre>m25,1
+6,17h18l-14,11
+5,17-15-10-15,10
+5-17-14-11h18z</pre>
+    </blockquote>
+    是简写
+    <pre>
+m 25 1
+l 6 17 h 18 l -14 11
+l 5 17 l -15 -10 l -15 10
+l 5 -17 l -14 -11 h 18 Z
+</pre>
+  </div>
+  <script>
+    let end = `m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z`.split(' ')
+    let current = ''
+    var repaintID, timer
+    var playing = false
+
+    window.onload = function() {
+      var svg = document.querySelector('svg path')
+
+
+      var tip = document.querySelector('.tip')
+
+      function togglePlay() {
+        // console.info('Stop', playing);
+        if (playing) {
+          clearTimeout(timer)
+          timer = null
+          cancelAnimationFrame(repaintID)
+          playing = false
+        } else {
+          svg.setAttribute('d', '')
+          current = ''
+          end = `m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z`.split(' ')
+          repaint()
+        }
+      }
+
+
+      function repaint() {
+        // console.info('repaint')
+        playing = true
+        repaintID = requestAnimationFrame(function() {
+          if (end.length < 1) {
+            end = `m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z`.split(' ')
+            setTimeout(function() {
+              svg.setAttribute('d', '')
+              current = ''
+              repaint()
+            }, 50)
+            return null
+          }
+          current = [current, end.shift()].filter(v => v !== '').join(' ')
+          tip.textContent = current.replace(/\s/g, ' \n')
+          svg.setAttribute('d', current)
+
+          timer = setTimeout(repaint, 400)
+            // repaint()
+        })
+      }
+      document.addEventListener('click', function() {
+        togglePlay()
+      })
+
+      // document.documentElement.click()
+    }
+  </script>
+</body>
+
+</html>
