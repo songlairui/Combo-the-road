@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RequireJS</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <main>
+  </main>
+  <script data-main='main' src="./require.js"></script>
+  <script>
+    requirejs.config({
+      baseUrl: 'scripts',
+      paths: {
+        main: './main'
+      }
+    })
+    requirejs(['main'])
+  </script>
+</body>
+
+</html>
