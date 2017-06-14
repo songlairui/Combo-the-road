@@ -3,7 +3,7 @@ var browserSync = require('browser-sync')
 var reload = browserSync.reload
 
 // 正在工作的目录
-var working_target = '23_css-img'
+var working_target = '24_require-js'
 
 gulp.task('serve', function(){
   browserSync({

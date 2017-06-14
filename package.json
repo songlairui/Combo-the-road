@@ -11,10 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.18.8",
+    "browser-sync": "^2.18.12",
     "gulp": "^3.9.1"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "requirejs": "^2.3.3"
   }
 }

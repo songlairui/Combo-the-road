@@ -1,6 +1,9 @@
-define(function(require) {
-
-  var main = document.querySelector('main')
-
-  main.textContent = 'Hello World !'
+requirejs.config({
+  baseUrl: './',
+  paths: {
+    jquery: './lib/jquery.min'
+  }
+})
+require(['jquery'], function($) {
+  $('main').html('Hello World !')
 })
