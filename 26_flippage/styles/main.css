@@ -41,9 +41,10 @@ main {
   background: rgb(240,235,240);;
   border-radius: .5em;
   position: relative;
-  perspective: 400px;
+  perspective: 1000px;
   cursor: pointer;
   margin: 3em 0;
+  transition: transform .4s, margin .5s;
 }
 
 .book [class^='flip'] {
@@ -77,4 +78,53 @@ main {
 
 .control{
   text-align: center;
+}
+
+
+main.demo{
+  perspective: 1000px;
+}
+
+main.demo .book{
+  margin-top:10em;
+  transform: rotateX(40deg);
+  transform-style: preserve-3d;
+}
+
+main.demo .book .flip:nth-child(1){
+  transform: translateZ(0px)
+}
+main.demo .book .flip:nth-child(2){
+  transform: translateZ(3px)
+}
+main.demo .book .flip:nth-child(3){
+  transform: translateZ(6px)
+}
+main.demo .book .flip:nth-child(4){
+  transform: translateZ(9px)
+}
+main.demo .book .flip:nth-child(5){
+  transform: translateZ(12px)
+}
+main.demo .book .flip:nth-child(6){
+  transform: translateZ(15px)
+}
+main.demo .book .flip:nth-child(7){
+  transform: translateZ(18px)
+}
+main.demo .book .flip:nth-child(8){
+  transform: translateZ(21px)
+}
+main.demo .book .flip:nth-child(9){
+  transform: translateZ(24px)
+}
+main.demo .book .flip:nth-child(10){
+  transform: translateZ(27px)
+}
+
+
+blockquote{
+  background: lightgray;
+  padding: .8em;
+  border-radius: 2px
 }
