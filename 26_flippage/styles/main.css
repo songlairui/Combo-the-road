@@ -41,7 +41,7 @@ main {
   background: rgb(240,235,240);;
   border-radius: .5em;
   position: relative;
-  perspective: 1000px;
+  perspective: 400px;
   cursor: pointer;
   margin: 3em 0;
   transition: transform .4s, margin .5s;
@@ -86,6 +86,7 @@ main.demo{
 }
 
 main.demo .book{
+  perspective: 1000px;
   margin-top:10em;
   transform: rotateX(40deg);
   transform-style: preserve-3d;
