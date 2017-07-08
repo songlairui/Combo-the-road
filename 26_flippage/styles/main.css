@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h3,
+h5,
+h6,
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0
+}
+
+html {
+  min-height: 100%;
+}
+
+html,
+body {
+  display: flex;
+  flex: 1 0 100%;
+  flex-flow: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  background: gray;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.book {
+  width: 268px;
+  height: 100px;
+  background: rgb(240,235,240);;
+  border-radius: .5em;
+  position: relative;
+  perspective: 400px;
+  cursor: pointer;
+  margin: 3em 0;
+}
+
+.book [class^='flip'] {
+  /*border: thin solid #ccc;*/
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  border-radius: 0 .5em .5em 0;
+  background: rgba(240,235,240,.8);
+  /*transition: transform .4s;*/
+  transform-origin: left;
+  transform: rotateY(0deg);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.book [class^='flip'].active{
+  animation: flipPage .49s linear 0s 1 normal backwards running;
+  /*animation-play-state: running;*/
+}
+
+@keyframes flipPage {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-180deg);
+  }
+}
+
+.control{
+  text-align: center;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>翻书效果</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <main>
+    <div class="book">
+      <div class="flip">10</div>
+      <div class="flip">9</div>
+      <div class="flip">8</div>
+      <div class="flip">7</div>
+      <div class="flip">6</div>
+      <div class="flip">5</div>
+      <div class="flip">4</div>
+      <div class="flip">3</div>
+      <div class="flip">2</div>
+      <div class="flip">1</div>
+    </div>
+    <div class="control">
+      <button onclick='flipOne()'>翻一页</button>
+      <button onclick="flipAniFactory(5)()">翻5页</button>
+      <button onclick="flipAniFactory()()">翻15页</button>
+      <button onclick="flipAniFactory(20)()">翻20页</button>
+      <button onclick="flipAniFactory(20,50)()">翻20页，时间间隔50ms</button>
+      <blockquote>
+        <pre>HTML中放了10个page，进行翻页动画时，为不可用状态。
+页数为尝试翻页，如果不存在可用page，就不翻了。
+默认时间间隔100ms。</pre>
+      </blockquote>
+    </div>
+    <blockquote><pre>CSS:
+使用transfrom、flex
+JS:
+使用Set,避免重复的操作
+使用简单的组合继承，为要进行动画的部分创建一个实例。
+创建一个grabOne方法，用来取得一个可动画的页面。
+TODO（这部分内容暂没想到有趣的地方，先不做了）:
+可用的page数可以根据参数创建，或动态增加
+使用Class组件化</pre></blockquote>
+github repo： <a href="https://songlairui.github.io/Combo-the-road/26_flippage">https://songlairui.github.io/Combo-the-road/26_flippage</a>
+  </main>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>
